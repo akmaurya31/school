@@ -57,9 +57,9 @@
           <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <label for="feeForSel">Fees For</label>
             <select class="form-control ak_select2" name="feeForSel" id="feeForSel" required> 
-              <option selected="selected" value="-1">--Select--</option>
-              <option value="Selected Course/Batch/Section">Class</option>
-              <!-- <option value="Selected Student">Selected Student</option> -->
+              @foreach($classes as $key)
+              <option value="{{$key->id}}">{{ $key->title }}</option>
+              @endforeach 
             </select>
           </div>
 
@@ -103,7 +103,7 @@
                   @foreach($HeadMaster as $key)
                   <tr>
                     <td></td>
-                    <td><label for="tutionTxt">{{ $key->headname_id }}</label></td>
+                    <td><label for="tutionTxt">{{ $key->head_name }}</label></td>
                   
                     
                      

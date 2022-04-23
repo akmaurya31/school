@@ -139,7 +139,7 @@
                              
                               <td></td>
                               <td>{{ $loop->iteration }}</td>
-                              <td>{{ $key->headname_id }}</td>
+                              <td>{{ $key->head_name }}</td>
                               <td>{{ $key->rate }}</td>
                               <td>{{ $key->frequency }}</td>
                               <td>

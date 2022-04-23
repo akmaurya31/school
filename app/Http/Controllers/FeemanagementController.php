@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Feemanagement;
- use App\FeeGroup;
+use App\FeeGroup;
+use App\Classes;
 use App\ManageFeeHead;
 use App\Department;
 use App\GroupMaster;
 use App\HeadnameMaster;
 use App\HeadMaster;
 use Auth;
- use App\FineSetup;
+use App\FineSetup;
 use App\Invoice;
 use App\ConssesionSetup;
 use App\MasterHead;
 use App\Student;
+use App\Fee_allocation_tbl;
+use Illuminate\Support\Facades\DB;
 
 class FeemanagementController extends Controller
 {
@@ -34,7 +37,9 @@ class FeemanagementController extends Controller
     {
         $GroupMaster = GroupMaster::get();
         $HeadnameMaster = HeadnameMaster::get();
-        $HeadMaster = HeadMaster::get();  
+        $HeadMaster = DB::table('head_master')
+        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')  
+        ->get();  
     	return view('Fee_management/fee_group',['staff'=>'active','dept'=>'active','GroupMaster'=>$GroupMaster,'HeadnameMaster'=>$HeadnameMaster,'HeadMaster'=>$HeadMaster]);  
     }
     
@@ -42,28 +47,32 @@ class FeemanagementController extends Controller
     {
         $GroupMaster = GroupMaster::get();
         $HeadnameMaster = HeadnameMaster::get();
-        $HeadMaster = HeadMaster::get();
+        //$HeadMaster = HeadMaster::get();
+
+        $HeadMaster = DB::table('head_master')
+        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')  
+        ->get();
+        
+        $classes = Classes::where('Status',1)->get();
+
+
         $groups=$this->group->get_groups_data();
-        return view('Fee_management/fee_allocation',compact('groups'),['GroupMaster'=>$GroupMaster,'HeadnameMaster'=>$HeadnameMaster,'HeadMaster'=>$HeadMaster]);
+        return view('Fee_management/fee_allocation',compact('groups'),['GroupMaster'=>$GroupMaster,'HeadnameMaster'=>$HeadnameMaster,'HeadMaster'=>$HeadMaster,'classes'=>$classes]);
         
     }
 
     public function alc_store(Request $request)
-    {
-    	// $arr=array(
-        //     'group_name'=>$request->grpName,
-        //     'frequency'=>$request->selectSel,
-        //     'transport_fee'=>$request->transportTxt,
-        //     'tution_fee'=>$request->tutionTxt,
-        //     'annual_fee'=>$request->annualTxt,
-        //     'created_by'=>Auth::user()->id
-        // );
-        // $this->group->save_data($arr);
-        // return redirect()->back()->withsuccess('Fee Alloted created successfully');
+    { 
+        $InsertData['group_id'] = $request->group_id; 
+        //$InsertData['fee_for'] = $request->fee_for;  //class_id aur fee_for both same
+        $InsertData['frequency'] = $request->frequency; 
+        $InsertData['fee_allocation_ids'] = '';         
+        $InsertData['class_id'] = $request->fee_for;    
+
         
-        // Department::create(['d_name'=>$request->input('d_name')]);
-        // session()->flash('message','Department has been created successfully');
-        // return redirect()->back();
+        Fee_allocation_tbl::create($InsertData); 
+        
+        return redirect()->route('admin.fee_allocation')->withSuccess('Data inserted Successfully'); 
     }
 
     public function getname()
@@ -312,6 +321,13 @@ class FeemanagementController extends Controller
     public function fee_reciepts()
     {
     	return view('Fee_management/fee_reciepts');
+    }
+
+    public function getHeadName(Request $request){
+        $id=$request->id;
+        $subjective_teacher = DB::table('headname_master') 
+        ->where('id',1)
+        ->get();  
     }
 
 }
