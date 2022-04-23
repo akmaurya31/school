@@ -1,0 +1,1162 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>School ERP - Student Admission</title>
+<link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- vendor css files -->
+<link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/vendor/animate.css">
+<link rel="stylesheet" href="assets/css/font-awesome.css">
+<link rel="stylesheet" href="assets/js/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" href="assets/js/vendor/daterangepicker/daterangepicker-bs3.css">
+<link rel="stylesheet" href="assets/js/vendor/morris/morris.css">
+<link rel="stylesheet" href="assets/js/vendor/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="assets/js/vendor/owl-carousel/owl.theme.css">
+<link rel="stylesheet" href="assets/js/vendor/rickshaw/rickshaw.min.css">
+<link rel="stylesheet" href="assets/js/vendor/datetimepicker/css/bootstrap-datetimepicker.min.css">
+<!-- datatable css -->
+<link rel="stylesheet" href="assets/js/vendor/datatable_net/jquery.dataTables.min.css">
+<link rel="stylesheet" href="assets/js/vendor/datatable_net/autoFill.dataTables.min.css" />
+<link rel="stylesheet" href="assets/js/vendor/datatable_net/select.dataTables.min.css">
+<link rel="stylesheet" href="assets/js/vendor/datatable_net/buttons.dataTables.min.css" />
+<!-- datatable css  end-->
+<link rel="stylesheet" href="assets/js/vendor/chosen/chosen.css">
+<link rel="stylesheet" href="assets/js/vendor/summernote/summernote.css"> 
+<link href="assets/css/select2.css" rel="stylesheet" />   
+<link rel="stylesheet" href="assets/css/flag-icon.min.css">
+<link rel="stylesheet" href="assets/css/vendor/simple-line-icons.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/akstyle.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<script src="assets/js/sweet.min.js"></script>
+<script src="assets/js/vendor/modernizr/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+<style>
+  .swal--addCategory .form-group{
+    text-align: left;
+  }
+</style>
+</head>
+<body id="school" class="appWrapper">
+<div id="wrap" class="animsition">
+<section id="header">
+<header class="clearfix">
+<div class="branding">
+<a class="brand" href="index.html">
+<!-- <span><strong>School</strong>ERP</span> -->
+<img src="assets/images/logo2.jpg" alt="logo" class="logo_image" />
+</a>
+<a role="button" tabindex="0" class="offcanvas-toggle visible-xs-inline"><i class="fa fa-bars"></i></a>
+</div>
+<ul class="nav-left pull-left list-unstyled list-inline">
+<li class="sidebar-collapse divided-right">
+<a role="button" tabindex="0" class="collapse-sidebar">
+<i class="fa fa-outdent"></i>
+</a>
+</li>
+<li class="dropdown divided-right settings">
+<a role="button" tabindex="0" class="dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-cog"></i>
+</a>
+</li>
+</ul>
+<div class="search" id="main-search">
+<input type="text" class="form-control underline-input" placeholder="Search...">
+</div>
+<ul class="nav-right pull-right list-inline">
+<li class="dropdown notifications">
+<a href class="dropdown-toggle" data-toggle="dropdown">
+<i class="fa fa-bell"></i>
+<span class="badge bg-lightred">3</span>
+</a>
+<div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInLeft">
+<div class="panel-heading">
+You have <strong>3</strong> notifications
+</div>
+<ul class="list-group">
+<li class="list-group-item">
+<a role="button" tabindex="0" class="media">
+<div class="media-body">
+<span class="block">Application</span>
+<small class="text-muted">6 minutes ago</small>
+</div>
+</a>
+</li>
+<li class="list-group-item">
+<a role="button" tabindex="0" class="media">
+<div class="media-body">
+<span class="block">Urgent Meetings</span>
+<small class="text-muted">12 minutes ago</small>
+</div>
+</a>
+</li>
+<li class="list-group-item">
+<a role="button" tabindex="0" class="media">
+<div class="media-body">
+<span class="block">Urgent Meetings</span>
+<small class="text-muted">12 minutes ago</small>
+</div>
+</a>
+</li>
+</ul>
+<div class="panel-footer">
+<a role="button" tabindex="0">Show all notifications <i class="fa fa-angle-right pull-right"></i></a>
+</div>
+</div>
+</li>
+<li class="dropdown language">
+<a href class="dropdown-toggle" data-toggle="dropdown">
+English <span class="flag-icon flag-icon-us"></span> <i class="fa fa-angle-down"></i>
+</a>
+<ul class="dropdown-menu animated littleFadeInRight" role="menu">
+<li><a role="button" tabindex="0">
+English <span class="flag-icon flag-icon-us"></span>
+</a></li>
+<li><a role="button" tabindex="0">
+Español <span class="flag-icon flag-icon-mx"></span>
+</a></li>
+</ul>
+</li>
+<li class="dropdown nav-profile">
+<a href class="dropdown-toggle" data-toggle="dropdown">
+<img src="assets/images/ici-avatar.jpg" alt="" class="img-circle size-30x30">
+<span>User Name<i class="fa fa-angle-down"></i></span>
+</a>
+<ul class="dropdown-menu animated littleFadeInRight" role="menu">
+<li>
+<a role="button" tabindex="0">
+<span class="badge bg-greensea pull-right">86%</span>
+<i class="fa fa-user"></i>Profile
+</a>
+</li>
+<li>
+<a role="button" tabindex="0">
+<span class="label bg-lightred pull-right">new</span>
+<i class="fa fa-check"></i>Tasks
+</a>
+</li>
+<li>
+<a role="button" tabindex="0">
+<i class="fa fa-cog"></i>Settings
+</a>
+</li>
+<li class="divider"></li>
+<li>
+<a role="button" tabindex="0">
+<i class="fa fa-lock"></i>Lock
+</a>
+</li>
+<li>
+<a role="button" tabindex="0">
+<i class="fa fa-sign-out"></i>Logout
+</a>
+</li>
+</ul>
+</li>
+<li class="toggle-right-sidebar">
+<a role="button" tabindex="0">
+<i class="fa fa-comments"></i>
+</a>
+</li>
+</ul>
+<!-- Right-side navigation end -->
+</header>
+</section>
+<!--/ HEADER Content  -->
+<!-- =================================================
+================= CONTROLS Content ===================
+================================================== -->
+<div id="controls">
+<!-- ================================================
+================= SIDEBAR Content ===================
+================================================= -->
+<aside id="sidebar">
+<div id="sidebar-wrap">
+<div class="panel-group slim-scroll" role="tablist">
+<div class="panel panel-default">
+<div class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a data-toggle="collapse" href="#sidebarNav">
+Navigation <i class="fa fa-angle-up"></i>
+</a>
+</h4>
+</div>
+<div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
+<div class="panel-body">
+<!-- ===================================================
+================= NAVIGATION Content ===================
+==================================================== -->
+<ul id="navigation">
+<li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-user-plus"></i> <span>Admission </span></a>
+<ul>
+<li><a href="new_admission.html"><i class="fa fa-caret-right"></i>New Admission</a></li>
+<li><a href="mutiple_import.html"><i class="fa fa-caret-right"></i>Import Multiple</a></li>
+<li><a href="student_add_category.html"><i class="fa fa-caret-right"></i>Category</a></li>
+<li><a href="admission_setup.html"><i class="fa fa-caret-right"></i>Admission Setup</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-graduation-cap"></i> <span>Student Details </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Student List</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Account Activate</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-male"></i> <span>Parents </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Parents</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>List Parents</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Account Activate</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-address-card"></i> <span>Reception Management</span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Admission Enquiry</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Visitor Record</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Phone Log Record</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Postal Record</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Complain / Feedback</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-id-card-o"></i> <span>Staff Management </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Department</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Designation</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Staff</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-address-book-o"></i> <span>Generate ID’s </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Id Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Admit Card Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Staff id Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Generate Id</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-award"></i> <span>Generate Certificate </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Staff</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Student</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-marker"></i> <span>HR Management </span></a>
+<ul>
+<li>
+<a role="button" tabindex="0"><i class="far fa5-money-bill-alt"></i> <span>Payroll </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Salary Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Salary Allotment</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Salary Payment</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-calendar-times-o"></i> <span>Leave </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>My Application</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Leave Category</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Application Mange</a></li>
+</ul>
+</li>
+<li><a href="admission.html"><i class="fas fa5-comment-dollar"></i>Appreciation</a></li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-hand-holding-usd"></i> <span>Advance Payment </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Payment Application</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Application Manage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-book"></i> <span>Class & Academic </span></a>
+<ul>
+<li><a href="admission.html"><i class="fas fa5-calendar-check"></i>Class Scheduler</a></li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-book"></i> <span>Class Management </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Manage Class</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Teacher Assign</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-book"></i> <span>Class Subject </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Subject</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Assign Class</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Assign Teacher</a></li>
+</ul>
+</li>
+<li><a href="admission.html"><i class="fas fa5-user-graduate"></i>Student Promotion</a></li>
+</ul>
+</li>
+<li><a href="admission.html"><i class="fa fa-television"></i>Class Online</a></li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-cloud-upload"></i> <span>Books Upload </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Define Attachment</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Content Upload</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-laptop-code"></i> <span>Homework E-Content </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Upload Audio Video</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Evaluation Report</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-book-reader"></i> <span>Exam Management </span></a>
+<ul>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-file-text"></i> <span>Exam </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Manage Exam</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Term Exam</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Examination Hall</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Student Distribution</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-clock-o"></i> <span>Exam Scheduler </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Exam Scheduler</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Schedule Exam</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-pencil"></i> <span>Marks Setup </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Marks Entries</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Grade Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-chalkboard-teacher"></i> <span>Smart Attendance</span></a>
+<ul>
+<li>
+<a role="button" tabindex="0"><i class="fas fa-graduation-cap"></i> <span>Student </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Class Attendance</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Exam Attendance</a></li>
+</ul>
+</li>
+<li><a href="admission.html"><i class="fa fa-user-circle-o"></i>Employee</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-pencil-square-o"></i> <span>Hostel and Transport </span></a>
+<ul>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-school"></i> <span>Hostel </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Category</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Hostel Master</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Rooms Setup</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Reports</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-shuttle-van"></i> <span>Transport </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Vehicle</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Route</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Create Stoppage</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Vehicle Allotment</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Allotment Reports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li>
+<a role="button" tabindex="0"><i class="fa fa-calendar"></i> <span>School Events </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Event Type</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Events Create & List</a></li>
+</ul>
+</li>
+
+
+<li>
+<a role="button" tabindex="0"><i class="fa fa-envelope-o"></i> <span>EXAMS </span></a>
+<ul>
+<li><a href="exam1.html"><i class="fa fa-caret-right"></i>Exam and Question status</a></li>
+<li><a href="exam2.html"><i class="fa fa-caret-right"></i>exam creation</a></li>
+<li><a href="exam3.html"><i class="fa fa-caret-right"></i>Exam</a></li>
+
+</ul>
+</li>
+
+<li>
+<a role="button" tabindex="0"><i class="fa fa-envelope-o"></i> <span>SMS & MAIL </span></a>
+<ul>
+<li><a href="school.html"><i class="fa fa-caret-right"></i>Add SMS Template</a></li>
+<li><a href="school.html"><i class="fa fa-caret-right"></i>Add E-mail Template</a></li>
+<li><a href="school.html"><i class="fa fa-caret-right"></i>Bulk SMS & E-mail</a></li>
+<li><a href="school.html"><i class="fa fa-caret-right"></i>SMS E-mail Counter</a></li>
+<li><a href="school.html"><i class="fa fa-caret-right"></i>Message</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-envelope-o"></i> <span>SMS & MAIL </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add SMS Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add E-mail Template</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Bulk SMS & E-mail</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>SMS E-mail Counter</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Message</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa fa-usd"></i> <span>Fee Management </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Fee Type</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Fee Group</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Fine setting</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Fee Allotment</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Fee invoice</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Generate Due Fee</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Reminder</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-users"></i> <span>Account Management </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Account</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add Voucher Head</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add new deposit</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Add new Expenditure</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Transaction List</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-list"></i> <span>Generate Report </span></a>
+<ul>
+<li>
+<a role="button" tabindex="0"><i class="icon-book-open"></i> <span>Examination Report </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Report Card</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Tabulation Sheet</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Exam Report</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="icon-layers"></i> <span>HR Reports </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Payment Summary</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Leave Summary</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Staff attendance</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Student attendance</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Payment Summary</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Leave Summary</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-hand-holding-usd"></i> <span>Fee Reports </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Student Fee Report</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Payment Receipt History</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>FeeFine report</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fas fa5-clipboard-list"></i> <span>Accounts Report </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>A/c Statements</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Income & Expenditure</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Income</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Expenditure</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>A/C Balance Sheet</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Filter Transitions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="far fa5-thumbs-up"></i> <span>Grievances / Feedback</span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Grievances List</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Feedback List</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-globe"></i> <span>Web Management </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Web page Setting</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Menu Item</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Web Page Section</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Manage Web page</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Sliding Pictures</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>School Features</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Our Testimonials</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>School Services</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>FAQ</a></li>
+</ul>
+</li>
+<li>
+<a role="button" tabindex="0"><i class="fa fa-cog"></i> <span>Setting </span></a>
+<ul>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>Language</a></li>
+<li><a href="admission.html"><i class="fa fa-caret-right"></i>School</a></li>
+</ul>
+</li>
+</ul>
+<!--/ NAVIGATION Content -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!--/ SIDEBAR Content -->
+<!-- =================================================
+================= RIGHTBAR Content ===================
+================================================== -->
+<aside id="rightbar">
+<div role="tabpanel">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#users" aria-controls="users" role="tab" data-toggle="tab"><i class="fa fa-users"></i></a></li>
+<li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab"><i class="fa fa-clock-o"></i></a></li>
+<li role="presentation"><a href="#friends" aria-controls="friends" role="tab" data-toggle="tab"><i class="fa fa-heart"></i></a></li>
+<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-cog"></i></a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="users">
+<h6><strong>Board</strong> Members</h6>
+<ul>
+<li class="online">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li>
+<li class="online">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li><li class="online">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li><li class="online">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li><li class="online">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li>
+</ul>
+<h6><strong>Others</strong> Users</h6>
+<ul>
+<li class="offline">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li>
+<li class="offline">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li><li class="offline">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li><li class="offline">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div role="tabpanel" class="tab-pane" id="history">
+<h6><strong>Chat</strong> History</h6>
+<ul>
+<li class="offline">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div role="tabpanel" class="tab-pane" id="friends">
+<h6><strong>Friends</strong> List</h6>
+<ul>
+<li class="offline">
+<div class="media">
+<a class="pull-left thumb thumb-sm" role="button" tabindex="0">
+<img class="media-object img-circle" src="assets/images/ici-avatar.jpg" alt>
+</a>
+<div class="media-body">
+<span class="media-heading">Chairman<strong>Ashutosh</strong></span>
+<small><i class="fa fa-map-marker"></i> Ambala Cantt</small>
+<span class="badge badge-outline status"></span>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div role="tabpanel" class="tab-pane" id="settings">
+<h6><strong>Chat</strong> Settings</h6>
+<ul class="settings">
+<li>
+<div class="form-group">
+<label class="col-xs-8 control-label">Show Offline Users</label>
+<div class="col-xs-4 control-label">
+<div class="onoffswitch greensea">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-offline" checked="">
+<label class="onoffswitch-label" for="show-offline">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="form-group">
+<label class="col-xs-8 control-label">Show Fullname</label>
+<div class="col-xs-4 control-label">
+<div class="onoffswitch greensea">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-fullname">
+<label class="onoffswitch-label" for="show-fullname">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="form-group">
+<label class="col-xs-8 control-label">History Enable</label>
+<div class="col-xs-4 control-label">
+<div class="onoffswitch greensea">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-history" checked="">
+<label class="onoffswitch-label" for="show-history">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="form-group">
+<label class="col-xs-8 control-label">Show Locations</label>
+<div class="col-xs-4 control-label">
+<div class="onoffswitch greensea">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-location" checked="">
+<label class="onoffswitch-label" for="show-location">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="form-group">
+<label class="col-xs-8 control-label">Notifications</label>
+<div class="col-xs-4 control-label">
+<div class="onoffswitch greensea">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-notifications">
+<label class="onoffswitch-label" for="show-notifications">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="form-group">
+<label class="col-xs-8 control-label">Show Undread Count</label>
+<div class="col-xs-4 control-label">
+<div class="onoffswitch greensea">
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-unread" checked="">
+<label class="onoffswitch-label" for="show-unread">
+<span class="onoffswitch-inner"></span>
+<span class="onoffswitch-switch"></span>
+</label>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</aside>
+<!--/ RIGHTBAR Content -->
+</div>
+<!--/ CONTROLS Content -->
+<!-- ====================================================
+================= CONTENT ===============================
+===================================================== -->
+<section id="content">
+<div class="page page-dashboard">
+<div class="pageheader">
+<div class="page-bar">
+<ul class="page-breadcrumb">
+<li>
+<a href="index.html"><i class="fa fa-home"></i> HOME</a>
+</li>
+<li>
+<a href="index.html">Fee Allocation</a>
+</li>
+</ul>
+<div class="page-toolbar">
+<a role="button" tabindex="0" class="btn btn-lightred no-border pickDate">
+<i class="fa fa-calendar"></i>&nbsp;&nbsp;<span></span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="akform_holder ">
+<div class="row">
+  <div id="fortune"></div>
+  <div class="col-md-12">
+    <!-- tile -->
+    <section class="tile">
+    
+    <!-- tile header -->
+    <div class="tile-header bg-blue dvd dvd-btm">
+    <h1 class="custom-font"></i><strong>Fee Allocation</strong></h1>
+    </div>
+    <!-- /tile header -->
+    
+    <!-- tile body -->
+    <div class="tile-body">
+      <form role="form" class="box">
+        <div class="row">
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="grpNameSel">Group Name</label>
+            <select class="form-control ak_select2" name="grpNameSel" id="grpNameSel" required> 
+              <option selected="selected" value="-1">--Select--</option>
+              <option value="1">new fee</option>
+              <option value="2">New Admission 2019-20</option>
+              <option value="3">Class-1</option>
+              <option value="4">Class-2</option>
+              <option value="5">3rd to 5th</option>
+              <option value="6">6th to 8th</option>
+              <option value="7">9th and 10th </option>
+              <option value="8">AC EMS</option>
+              <option value="9">Previous Dues</option>
+              <option value="10">AC EMS - New</option>
+              <option value="11">Readmission Fee</option>
+              <option value="12">Test</option>
+              <option value="13">sg</option>
+              <option value="14">awfwef</option>
+              <option value="15">Class 2</option>
+              <option value="16">Gr S</option>
+              <option value="17">Class 7th tution fee</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="feeForSel">Fees For</label>
+            <select class="form-control ak_select2" name="feeForSel" id="feeForSel" required> 
+              <option selected="selected" value="-1">--Select--</option>
+              <option value="Selected Course/Batch/Section">Selected Course/Batch/Section</option>
+              <option value="Selected Student">Selected Student</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" id="fee-allocate-grpName">
+          <div class="tile-body ak_table ak_table2 ak_dtablestyle">
+            <div class="table_ws_nowrap tbl--cst__scroll">
+               <table class="table table-bordered table-responsive mb-0">
+                <thead>
+                  <tr>
+                    <th class="stl_th1">Head Name</th>
+                    <th class="stl_th2">Apr</th>
+                    <th class="stl_th3">May</th>
+                    <th class="stl_th4">Jun</th>
+                    <th class="stl_th5">Jul</th>
+                    <th class="stl_th6">Aug</th>
+                    <th class="stl_th7">Sep</th>
+                    <th class="stl_th8">Oct</th>
+                    <th class="stl_th9">Nov</th>
+                    <th class="stl_th10">Dec</th>
+                    <th class="stl_th11">Jan</th>
+                    <th class="stl_th12">Feb</th>
+                    <th class="stl_th13">Mar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><label for="tutionTxt">Tution fees</label></td>
+                    <td><input type="number" name="row1--m1" id="row1--m1"></td>
+                    <td><input type="number" name="row1--m2" id="row1--m2"></td>
+                    <td><input type="number" name="row1--m3" id="row1--m3"></td>
+                    <td><input type="number" name="row1--m4" id="row1--m4"></td>
+                    <td><input type="number" name="row1--m5" id="row1--m5"></td>
+                    <td><input type="number" name="row1--m6" id="row1--m6"></td>
+                    <td><input type="number" name="row1--m7" id="row1--m7"></td>
+                    <td><input type="number" name="row1--m8" id="row1--m8"></td>
+                    <td><input type="number" name="row1--m9" id="row1--m9"></td>
+                    <td><input type="number" name="row1--m10" id="row1--m10"></td>
+                    <td><input type="number" name="row1--m11" id="row1--m11"></td>
+                    <td><input type="number" name="row1--m12" id="row1--m12"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="tutionTxt">Annual Charge</label></td>
+                    <td><input type="number" name="row2--m1" id="row2--m1"></td>
+                    <td><input type="number" name="row2--m2" id="row2--m2"></td>
+                    <td><input type="number" name="row2--m3" id="row2--m3"></td>
+                    <td><input type="number" name="row2--m4" id="row2--m4"></td>
+                    <td><input type="number" name="row2--m5" id="row2--m5"></td>
+                    <td><input type="number" name="row2--m6" id="row2--m6"></td>
+                    <td><input type="number" name="row2--m7" id="row2--m7"></td>
+                    <td><input type="number" name="row2--m8" id="row2--m8"></td>
+                    <td><input type="number" name="row2--m9" id="row2--m9"></td>
+                    <td><input type="number" name="row2--m10" id="row2--m10"></td>
+                    <td><input type="number" name="row2--m11" id="row2--m11"></td>
+                    <td><input type="number" name="row2--m12" id="row2--m12"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="tutionTxt">Development Fund</label></td>
+                    <td><input type="number" name="row3--m1" id="row3--m1"></td>
+                    <td><input type="number" name="row3--m2" id="row3--m2"></td>
+                    <td><input type="number" name="row3--m3" id="row3--m3"></td>
+                    <td><input type="number" name="row3--m4" id="row3--m4"></td>
+                    <td><input type="number" name="row3--m5" id="row3--m5"></td>
+                    <td><input type="number" name="row3--m6" id="row3--m6"></td>
+                    <td><input type="number" name="row3--m7" id="row3--m7"></td>
+                    <td><input type="number" name="row3--m8" id="row3--m8"></td>
+                    <td><input type="number" name="row3--m9" id="row3--m9"></td>
+                    <td><input type="number" name="row3--m10" id="row3--m10"></td>
+                    <td><input type="number" name="row3--m11" id="row3--m11"></td>
+                    <td><input type="number" name="row3--m12" id="row3--m12"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="tutionTxt">Exam/Ass Fee</label></td>
+                    <td><input type="number" name="row4--m1" id="row4--m1"></td>
+                    <td><input type="number" name="row4--m2" id="row4--m2"></td>
+                    <td><input type="number" name="row4--m3" id="row4--m3"></td>
+                    <td><input type="number" name="row4--m4" id="row4--m4"></td>
+                    <td><input type="number" name="row4--m5" id="row4--m5"></td>
+                    <td><input type="number" name="row4--m6" id="row4--m6"></td>
+                    <td><input type="number" name="row4--m7" id="row4--m7"></td>
+                    <td><input type="number" name="row4--m8" id="row4--m8"></td>
+                    <td><input type="number" name="row4--m9" id="row4--m9"></td>
+                    <td><input type="number" name="row4--m10" id="row4--m10"></td>
+                    <td><input type="number" name="row4--m11" id="row4--m11"></td>
+                    <td><input type="number" name="row4--m12" id="row4--m12"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="tutionTxt">Smart EMS</label></td>
+                    <td><input type="number" name="row5--m1" id="row5--m1"></td>
+                    <td><input type="number" name="row5--m2" id="row5--m2"></td>
+                    <td><input type="number" name="row5--m3" id="row5--m3"></td>
+                    <td><input type="number" name="row5--m4" id="row5--m4"></td>
+                    <td><input type="number" name="row5--m5" id="row5--m5"></td>
+                    <td><input type="number" name="row5--m6" id="row5--m6"></td>
+                    <td><input type="number" name="row5--m7" id="row5--m7"></td>
+                    <td><input type="number" name="row5--m8" id="row5--m8"></td>
+                    <td><input type="number" name="row5--m9" id="row5--m9"></td>
+                    <td><input type="number" name="row5--m10" id="row5--m10"></td>
+                    <td><input type="number" name="row5--m11" id="row5--m11"></td>
+                    <td><input type="number" name="row5--m12" id="row5--m12"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="tutionTxt">ERP EMS</label></td>
+                    <td><input type="number" name="row6--m1" id="row6--m1"></td>
+                    <td><input type="number" name="row6--m2" id="row6--m2"></td>
+                    <td><input type="number" name="row6--m3" id="row6--m3"></td>
+                    <td><input type="number" name="row6--m4" id="row6--m4"></td>
+                    <td><input type="number" name="row6--m5" id="row6--m5"></td>
+                    <td><input type="number" name="row6--m6" id="row6--m6"></td>
+                    <td><input type="number" name="row6--m7" id="row6--m7"></td>
+                    <td><input type="number" name="row6--m8" id="row6--m8"></td>
+                    <td><input type="number" name="row6--m9" id="row6--m9"></td>
+                    <td><input type="number" name="row6--m10" id="row6--m10"></td>
+                    <td><input type="number" name="row6--m11" id="row6--m11"></td>
+                    <td><input type="number" name="row6--m12" id="row6--m12"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="tutionTxt">Tution fees</label></td>
+                    <td><input type="number" name="row7--m1" id="row7--m1"></td>
+                    <td><input type="number" name="row7--m2" id="row7--m2"></td>
+                    <td><input type="number" name="row7--m3" id="row7--m3"></td>
+                    <td><input type="number" name="row7--m4" id="row7--m4"></td>
+                    <td><input type="number" name="row7--m5" id="row7--m5"></td>
+                    <td><input type="number" name="row7--m6" id="row7--m6"></td>
+                    <td><input type="number" name="row7--m7" id="row7--m7"></td>
+                    <td><input type="number" name="row7--m8" id="row7--m8"></td>
+                    <td><input type="number" name="row7--m9" id="row7--m9"></td>
+                    <td><input type="number" name="row7--m10" id="row7--m10"></td>
+                    <td><input type="number" name="row7--m11" id="row7--m11"></td>
+                    <td><input type="number" name="row7--m12" id="row7--m12"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="fee-allocate-forBatch">
+          <div class="tile-body ak_dtablestyle">
+            <div class="table_ws_nowrap tbl--cst__scroll">
+               <table class="table table-bordered table-responsive mb-0">
+                <thead>
+                  <tr>
+                    <th class="stl_th1">Class</th>
+                    <th class="stl_th2">Nicname</th>
+                    <th class="stl_th3">Section Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Prep</td>
+                    <td>Prep</td>
+                    <td>Marigold</td>
+                  </tr>
+                  <tr>
+                    <td>Prep</td>
+                    <td>Prep</td>
+                    <td>Marigold</td>
+                  </tr>
+                  <tr>
+                    <td>Prep</td>
+                    <td>Prep</td>
+                    <td>Marigold</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="fee-allocate-forStudent">
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="courseSel">Select Course</label>
+            <select class="form-control ak_select2" name="courseSel" id="courseSel" required> 
+              <option selected="selected" value="-1">--Select--</option>
+              <option value='course1'>course1</option> 
+              <option value='course2'>course2</option>
+              <option value='course3'>course3</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="batchSel">Select Batch</label>
+            <select class="form-control ak_select2" name="batchSel" id="batchSel" disabled required> 
+              <option selected="selected" value="-1">--Select--</option>
+              <option value='batch1'>Batch 1</option>
+              <option value='batch2'>Batch 2</option>
+              <option value='batch3'>Batch 3</option>
+            </select>
+          </div>
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="sectionSel">Select Section</label>
+            <select class="form-control ak_select2" name="sectionSel" id="sectionSel" disabled required> 
+              <option selected="selected" value="-1">--Select--</option>
+              <option value='section1'>Section 1</option>
+              <option value='section2'>Section 2</option>
+              <option value='section3'>Section 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" id="fee-allocate-tbl--details">
+          <div class="tile-body ak_table ak_table2 ak_dtablestyle">
+            <div class="table_ws_nowrap tbl--fee__collect">
+               <table class="table table-bordered table-responsive mb-0">
+                <thead>
+                  <tr>
+                    <th class="stl_th1">Reg No</th>
+                    <th class="stl_th2">Student Name</th>
+                    <th class="stl_th3">Father Name</th>
+                    <th class="stl_th4">Admission Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>3495</td>
+                    <td>Kirti Sharma</td>
+                    <td>Kapil Sharma</td>
+                    <td>Admission Type</td>
+                  </tr>
+                  <tr>
+                    <td>3497</td>
+                    <td>Dipanshu Suthar</td>
+                    <td>Rohitash</td>
+                    <td>New</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="submit-holder">
+          <div class="row">
+          <div class="col-sm-12 form__button--action"> 
+          <div>
+          <button type="reset" class="btn btn-red">Reset</button>
+          </div>
+          <div>
+          <button type="submit" data-value="New item is purchased" class="btn btn-blue"><i class="fa fa-floppy-o"></i>Save</button>
+          </div>
+          </div> 
+          </div>
+          </div>
+      </form>
+    </div>                        
+    <!-- /tile body -->
+    </section>
+    <!-- /tile -->
+    </div>
+</div>
+</div>
+</div>
+</div>
+<p class="cright">&copy; Copyright 2020, All Right Reserved</p>
+</section>
+<!--/ CONTENT -->
+</div>
+<!--/ Application Content -->
+<!-- ============================================
+============== Vendor JavaScripts ===============
+============================================= -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery/jquery-1.11.2.min.js"><\/script>')</script>
+<script>
+
+$(function(){
+  $("#modalClick").on('click',function(){
+    $("#formModal").modal('show');
+  });
+});
+
+</script>
+<script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="assets/js/vendor/jRespond/jRespond.min.js"></script>
+<script src="assets/js/vendor/d3/d3.min.js"></script>
+<script src="assets/js/vendor/d3/d3.layout.min.js"></script>
+<script src="assets/js/vendor/rickshaw/rickshaw.min.js"></script>
+<script src="assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
+<script src="assets/js/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/js/vendor/animsition/js/jquery.animsition.min.js"></script>
+<script src="assets/js/vendor/daterangepicker/moment.min.js"></script>
+<script src="assets/js/vendor/daterangepicker/daterangepicker.js"></script>
+<script src="assets/js/vendor/screenfull/screenfull.min.js"></script>
+<script src="assets/js/vendor/flot/jquery.flot.min.js"></script>
+<script src="assets/js/vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="assets/js/vendor/flot-spline/jquery.flot.spline.min.js"></script>
+<script src="assets/js/vendor/easypiechart/jquery.easypiechart.min.js"></script>
+<script src="assets/js/vendor/raphael/raphael-min.js"></script>
+<script src="assets/js/vendor/morris/morris.min.js"></script>
+<script src="assets/js/vendor/owl-carousel/owl.carousel.min.js"></script>
+<script src="assets/js/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/vendor/chosen/chosen.jquery.min.js"></script>
+<script src="assets/js/vendor/summernote/summernote.min.js"></script>
+<script src="assets/js/vendor/coolclock/coolclock.js"></script>
+<script src="assets/js/vendor/coolclock/excanvas.js"></script>
+<script src="assets/js/select2.js"></script> 
+<script src="assets/js/main.js"></script>
+<!--/ Page Specific Scripts -->
+<!-- Datatable scripts -->
+<script src="assets/js/vendor/datatable_net/jquery.dataTables.min.js"></script>
+<script src="assets/js/vendor/datatable_net/dataTables.autoFill.min.js"></script>
+<script src="assets/js/vendor/datatable_net/dataTables.select.min.js"></script>
+<script src="assets/js/vendor/datatable_net/dataTables.buttons.min.js"></script>
+<script src="assets/js/vendor/datatable_net/jszip.min.js"></script>
+<script src="assets/js/vendor/datatable_net/pdfmake.min.js"></script>
+<script src="assets/js/vendor/datatable_net/vfs_fonts.js"></script>
+<script src="assets/js/vendor/datatable_net/buttons.html5.min.js"></script>
+<script src="assets/js/vendor/datatable_net/buttons.colVis.min.js"></script>
+<script src="assets/js/vendor/datatable_net/buttons.print.min.js"></script>
+<!-- cutom js for data table  -->
+<script src="assets/js/vendor/datatable_net/dataTables.options.js"></script> 
+
+<!-- datatable-script ends-->
+
+<script src="assets/js/fullscreen.js"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+</body>
+</html>
