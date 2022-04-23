@@ -44,32 +44,33 @@
       {{ csrf_field() }}
 
         <div class="row">
-          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <label for="grpNameSel">Group Name</label>
-            <select class="form-control ak_select2" name="grpNameSel" id="grpNameSel" required> 
-              <option selected="selected" value="-1">--Select--</option>
 
-              @foreach($GroupMaster as $key)
-              <option value="{{$key->id}}">{{ $key->group_name }}</option>
-              @endforeach 
-            </select>
-          </div>
-          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <label for="feeForSel">Fees For</label>
-            <select class="form-control ak_select2" name="feeForSel" id="feeForSel" required> 
+        <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="feeForSel">Fees For Class</label>
+            <select class="form-control ak_select2" name="class_id" id="feeForSel" required> 
               @foreach($classes as $key)
               <option value="{{$key->id}}">{{ $key->title }}</option>
               @endforeach 
             </select>
           </div>
 
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <label for="grpNameSel">Group Name</label>
+            <select class="form-control ak_select2" name="group_id" id="grpNameSel" required> 
+              <option selected="selected" value="-1">--Select--</option>
+              @foreach($GroupMaster as $key)
+              <option value="{{$key->id}}">{{ $key->group_name }}</option>
+              @endforeach 
+            </select>
+          </div>
 
           <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <label for="feeForSel">Frequency</label>
-            <select class="form-control" name="selectSel" required> 
-              <option>Annual</option> 
-              <option>Quarterly</option>
-              <option>Half Yearly</option>
+            <select class="form-control" name="frequency" required> 
+              <option  value='1'>Annual</option> 
+              <option  value='3'>Quarterly</option>
+              <option  value='6'>Half Yearly</option>
+              <option  value='12'>monthly</option>
             </select>       
           </div>
 
@@ -102,23 +103,20 @@
                 <tbody>
                   @foreach($HeadMaster as $key)
                   <tr>
-                    <td></td>
-                    <td><label for="tutionTxt">{{ $key->head_name }}</label></td>
-                  
-                    
-                     
-                    <td><input type="number" name="row1--m1" id="row1--m1"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m2" id="row1--m2"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m3" id="row1--m3"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m4" id="row1--m4"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m5" id="row1--m5"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m6" id="row1--m6"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m7" id="row1--m7"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m8" id="row1--m8"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m9" id="row1--m9"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m10" id="row1--m10"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m11" id="row1--m11"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="row1--m12" id="row1--m12"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><br/><input type="checkbox" name="headbox[<?=$key->id?>]" class="checkAll" value="<?=$key->id?>"/></td>
+                    <td><label for="tutionTxt">{{ $key->head_name }}</label></td> 
+                    <td><input type="number" name="mon_m4[<?=$key->id?>]" id="mon_m4"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m5[<?=$key->id?>]" id="mon_m5"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m6[<?=$key->id?>]" id="mon_m6"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m7[<?=$key->id?>]" id="mon_m7"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m8[<?=$key->id?>]" id="mon_m8"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m9[<?=$key->id?>]" id="mon_m9"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m10[<?=$key->id?>]" id="mon_m10"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m11[<?=$key->id?>]" id="mon_m11"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m12[<?=$key->id?>]" id="mon_m12"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m1[<?=$key->id?>]" id="mon_m1"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m2"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m3"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
                   </tr>
                   @endforeach  
                 </tbody>
@@ -126,6 +124,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="row" id="fee-allocate-forBatch">
           <div class="tile-body ak_dtablestyle">
             <div class="table_ws_nowrap tbl--cst__scroll">
@@ -158,6 +158,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="row" id="fee-allocate-forStudent">
           <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <label for="courseSel">Select Course</label>

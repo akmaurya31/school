@@ -18,6 +18,7 @@ use App\ConssesionSetup;
 use App\MasterHead;
 use App\Student;
 use App\Fee_allocation_tbl;
+use App\Fee_allocation_details;
 use Illuminate\Support\Facades\DB;
 
 class FeemanagementController extends Controller
@@ -62,16 +63,29 @@ class FeemanagementController extends Controller
     }
 
     public function alc_store(Request $request)
-    { 
-        $InsertData['group_id'] = $request->group_id; 
-        //$InsertData['fee_for'] = $request->fee_for;  //class_id aur fee_for both same
+    {    
+        foreach($request->headbox as $k=>$v){ 
+            $data['head_id'] = $request->headbox[$k];    
+            $data['month1'] = $request->mon_m1[$k];    
+            $data['month2'] = $request->mon_m2[$k];    
+            $data['month3'] = $request->mon_m3[$k];    
+            $data['month4'] = $request->mon_m4[$k];   
+            $data['month5'] = $request->mon_m5[$k];    
+            $data['month6'] = $request->mon_m6[$k];    
+            $data['month7'] = $request->mon_m7[$k];    
+            $data['month8'] = $request->mon_m8[$k]; 
+            $data['month9'] = $request->mon_m9[$k];    
+            $data['month10'] = $request->mon_m10[$k];    
+            $data['month11'] = $request->mon_m11[$k];    
+            $data['month12'] = $request->mon_m12[$k];  
+            $fee_alloca_Array[] =Fee_allocation_details::create($data)->id; 
+        }    
+        
+        $InsertData['class_id'] = $request->class_id;   
+        $InsertData['group_id'] = $request->group_id;  
         $InsertData['frequency'] = $request->frequency; 
-        $InsertData['fee_allocation_ids'] = '';         
-        $InsertData['class_id'] = $request->fee_for;    
-
-        
-        Fee_allocation_tbl::create($InsertData); 
-        
+        $InsertData['fee_allocation_ids'] = implode(', ', $fee_alloca_Array);; 
+        Fee_allocation_tbl::create($InsertData);  
         return redirect()->route('admin.fee_allocation')->withSuccess('Data inserted Successfully'); 
     }
 

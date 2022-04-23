@@ -46,7 +46,8 @@
       
       <!-- tile body -->
       <div class="tile-body collapse">
-        <form role="form" class="box">
+      <form role="form" method='post' action="{{ route('Feeheads.alc_store') }}"> 
+      {{ csrf_field() }}
           <div class="row">
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="feeHeadTxt">Fees Heading</label>

@@ -130,6 +130,8 @@
                               <th class="stl_th4">Head Name</th>
                               <th class="stl_th5">Rate</th>
                               <th class="stl_th6">Frequency</th>
+                              <th class="stl_th6">Group</th>
+                              <th class="stl_th6">Class</th>
                               <th class="stl_th10 action_icons_th">Actions</th>
                            </tr>
                            
@@ -142,6 +144,8 @@
                               <td>{{ $key->head_name }}</td>
                               <td>{{ $key->rate }}</td>
                               <td>{{ $key->frequency }}</td>
+                              <td>{{ $key->group_id }}</td>
+                              <td>{{ $key->class_id }}</td>
                               <td>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
