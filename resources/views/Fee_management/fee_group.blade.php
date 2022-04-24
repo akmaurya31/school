@@ -144,8 +144,8 @@
                               <td>{{ $key->head_name }}</td>
                               <td>{{ $key->rate }}</td>
                               <td>{{ $key->frequency }}</td>
-                              <td>{{ $key->group_id }}</td>
-                              <td>{{ $key->class_id }}</td>
+                              <td>{{ $key->group_name }}</td>
+                              <td>{{ $key->title }}</td>
                               <td>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
@@ -166,6 +166,8 @@
 
 
 
+<form role="form" method='post' action="{{ route('Feemanagement.group_alc_store') }}">
+{{ csrf_field() }} 
 <!-- create concession group detials -->
 <div id="formModal1" class="modal fade">
    <div class="modal-dialog" role="document">
@@ -195,8 +197,10 @@
       </div>
    </div>
 </div>
+</form> 
 
-
+<form role="form" method='post' action="{{ route('Feemanagement.headname_alc_store') }}"> 
+{{ csrf_field() }}
 <!-- create concession group detials -->
 <div id="formModal2" class="modal fade">
    <div class="modal-dialog" role="document">
@@ -226,8 +230,10 @@
       </div>
    </div>
 </div>
+</form>
 
-
+<form role="form" method='post' action="{{ route('Feemanagement.head_alc_store') }}"> 
+{{ csrf_field() }}
 <div id="formModal3" class="modal fade">
    <div class="modal-dialog w-tbl-70" role="document">
       <div class="modal-content">
@@ -240,7 +246,7 @@
             </div>
          </div>
         <!-- ------------ -->
-        <form>
+        
         <div class="modal-body row">
           <div class="tile-body ak_table ak_table2 ak_dtablestyle">
             <div class="table_ws_nowrap">
@@ -250,45 +256,48 @@
                     <th class="stl_th1">Head Name</th>
                     <th class="stl_th2">Rate</th>
                     <th class="stl_th2">Frequency</th>
+                    <th class="stl_th2">Group</th>
+                    <th class="stl_th2">Class</th>
                   </tr>
                 </thead>
                 <tbody>
+                    @foreach($HeadnameMaster as $key)
                   <tr>
-                    <td><label for="transportTxt">Transport fees</label></td>
-                    <td><input type="number" maxlength="6" min="0" class="form-control" name="transportTxt" id="transportTxt"></td>
+                    <td><label for="transportTxt">{{ $key->head_name }}</label> 
+                    <input type="hidden" maxlength="6" min="0" class="form-control" name="head_id[{{$key->id}}]" id="transportTxt" value="{{$key->id}}"></td>
                     <td>
-                       <select class="form-control" name="selectSel" required> 
-              <option>Annual</option> 
-              <option>Quarterly</option>
-              <option>Half Yearly</option>
-            </select>          
-          </td>
-                  </tr>
-                  <tr>
-                    <td><label for="tutionTxt">Tution fees</label></td>
-                    <td><input type="number" maxlength="6" min="0" class="form-control" name="tutionTxt" id="tutionTxt"></td>
+                   
+                    <input type="number" maxlength="6" min="0" class="form-control" name="rate[{{$key->id}}]" id="transportTxt">
+                     
+                     </td>
                     <td>
-                       <select class="form-control" name="selectSel" required> 
-              <option>Annual</option> 
-              <option>Quarterly</option>
-              <option>Half Yearly</option>
-            </select>          
-          </td>
-                  </tr>  
-                  <tr>
-                    <td><label for="annualTxt">Annual fees</label></td>
-                    <td><input type="number" maxlength="6" min="0" class="form-control" name="annualTxt" id="annualTxt"></td>
-                    <td>
-                       <select class="form-control" name="selectSel" required> 
-              <option>Annual</option> 
-              <option>Quarterly</option>
-              <option>Half Yearly</option>
-            </select>          
-          </td>
-                  </tr>
+                       <select class="form-control" name="frequency[{{$key->id}}]" required> 
+                       <option selected="selected" value="-1">--Select--</option>
+                        <option>Annual</option> 
+                        <option>Quarterly</option>
+                        <option>Half Yearly</option>
+                        </select>          
+                   </td>
 
+                   <td> <select class="form-control ak_select2" name="group_id[{{$key->id}}]" id="grpNameSel" required> 
+              <option selected="selected" value="-1">--Select--</option>
+              @foreach($GroupMaster as $keyg)
+              <option value="{{$keyg->id}}">{{ $keyg->group_name }}</option>
+              @endforeach 
+            </select> </td>
+
+                   <td>
+                   <select class="form-control ak_select2" name="class_id[{{$key->id}}]" id="feeForSel" required> 
+                   <option selected="selected" value="-1">--Select--</option>
+              @foreach($classes as $keyc)
+              <option value="{{$keyc->id}}">{{ $keyc->title }}</option>
+              @endforeach 
+            </select>
+            </td>
+                   
+                  </tr> 
                 
-
+                  @endforeach
 
                 </tbody>
               </table>
@@ -297,7 +306,7 @@
             </div>
           </div>
         
-         </form>
+         
       </div>
         <!-- ------------ -->
 
@@ -309,7 +318,7 @@
    </div>
 </div>
 
-
+</form>
 <!--/ Application Content -->
 <!-- ============================================
 ============== Vendor JavaScripts ===============

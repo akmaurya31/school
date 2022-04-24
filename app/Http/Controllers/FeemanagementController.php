@@ -39,10 +39,18 @@ class FeemanagementController extends Controller
     {
         $GroupMaster = GroupMaster::get();
         $HeadnameMaster = HeadnameMaster::get();
+        // $HeadMaster = DB::table('head_master')
+        // ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')  
+        // ->get();  
+        $classes = Classes::where('Status',1)->get();
+
         $HeadMaster = DB::table('head_master')
-        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')  
-        ->get();  
-    	return view('Fee_management/fee_group',['staff'=>'active','dept'=>'active','GroupMaster'=>$GroupMaster,'HeadnameMaster'=>$HeadnameMaster,'HeadMaster'=>$HeadMaster]);  
+        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')
+        ->join('classmaster', 'head_master.class_id', '=', 'classmaster.id') 
+        ->join('group_master', 'head_master.group_id', '=', 'group_master.id')  
+        ->get();
+        
+    	return view('Fee_management/fee_group',['staff'=>'active','dept'=>'active','GroupMaster'=>$GroupMaster,'HeadnameMaster'=>$HeadnameMaster,'HeadMaster'=>$HeadMaster,'classes'=>$classes]);  
     }
     
     public function fee_allocation()
@@ -111,33 +119,7 @@ class FeemanagementController extends Controller
         session()->flash('message','Department has been created successfully');
         return redirect()->back();
     }
-
-
-    public function storexxxx(Request $request)
-    {
-    	  print_r($request->input());
-
-        Quiz::create([
-            'quiz_name' => 'A',
-            'drop_subject' => $request->input('drop_subject'),
-            'drop_class' => $request->input('drop_class'),
-            'drop_section' => $request->input('drop_section'), 
-            'enter_question' => $enter_question,
-            'explination' => $explination, 
-            'txt_opt_a' => $txt_opt_a,
-            'txt_opt_b' => $txt_opt_b, 
-            'txt_opt_c' => $request->input('txt_opt_c'), 
-            'txt_opt_d' => $request->input('txt_opt_d'),  
-            'opt_a' => $opt_a, 
-            'opt_b' => $opt_b, 
-            'opt_c' => $request->input('opt_c'), 
-            'opt_d' => $request->input('opt_d')
-
-        ]);
-        
-        session()->flash('message','Designation has been created successfully');
-        return redirect()->back();
-    }
+ 
 
 
 
@@ -253,13 +235,34 @@ class FeemanagementController extends Controller
             return redirect()->route('admin.feeheads_setup')->withSuccess('Data inserted Successfully'); 
     }
 
+   
     public function groupname_alc_store(Request $request)
     {    
-            $data['name'] = $request->fee_heading; 
-            Manage_fee_head::create($data);  
-            return redirect()->route('admin.feeheads_setup')->withSuccess('Data inserted Successfully'); 
+            $data['group_name'] = $request->fee_heading; 
+            GroupMaster::create($data);  
+            return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
     }
 
+
+    public function headname_alc_store(Request $request)
+    {    
+            $data['head_name'] = $request->fee_heading; 
+            HeadnameMaster::create($data);  
+            return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
+    }
+
+    public function head_alc_store(Request $request)
+    {    
+            foreach($request->head_id as $k=>$v){
+                $data['frequency'] = $request->frequency[$v]; 
+                $data['headname_id'] = $request->head_id[$v]; 
+                $data['rate'] = $request->rate[$v]; 
+                $data['group_id'] = $request->group_id[$v];  
+                $data['class_id'] = $request->class_id[$v];   
+                HeadMaster::create($data);  
+            }
+            return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
+    }
  
     public function save_conssesion_form_data(Request $request)
     {
