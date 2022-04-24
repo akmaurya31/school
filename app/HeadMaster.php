@@ -20,12 +20,21 @@ class HeadMaster extends Model
      */
     protected $primaryKey = 'id';
 
+
     /**
 	 * The attributes that aren't mass assignable.
 	 *
 	 * @var array
 	 */
 	protected $guarded = [];
+
+     protected $fillable = [
+          'frequency',
+          'headname_id',
+          'rate',
+          'group_id',
+          'class_id'
+    ];
 
 	/**
      * Indicates if the model should be timestamped.

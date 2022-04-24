@@ -588,7 +588,7 @@ Route::group(['middleware' => ['auth','revalidate']], function () {
     #Fee Managment route set
     Route::get('admin/Fee_management/fee_allocation', 'FeemanagementController@fee_allocation')->name('admin.fee_allocation');
     Route::post('admin/Fee_management/alc_store', 'FeemanagementController@alc_store')->name('Feemanagement.alc_store');
-    Route::post('admin/Fee_management/alc_store', 'FeemanagementController@alc_store')->name('Feemanagement.alc_store');
+    Route::post('admin/Fee_management/feeheads_alc_store', 'FeemanagementController@feeheads_alc_store')->name('Feemanagement.feeheads_alc_store');
 
     //Route::get('admin/get-row-data/{table}/{id}/{value}', 'HostelController@get_row_data')->name('admin.edit-hostel');
 

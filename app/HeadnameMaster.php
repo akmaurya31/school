@@ -26,6 +26,9 @@ class HeadnameMaster extends Model
 	 * @var array
 	 */
 	protected $guarded = [];
+     protected $fillable = [
+          'head_name' 
+    ];
 
 	/**
      * Indicates if the model should be timestamped.

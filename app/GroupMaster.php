@@ -27,6 +27,11 @@ class GroupMaster extends Model
 	 */
 	protected $guarded = [];
 
+     protected $fillable = [
+          'group_name' 
+    ];
+
+
 	/**
      * Indicates if the model should be timestamped.
      *
@@ -38,4 +43,6 @@ class GroupMaster extends Model
     {
          return GroupMaster::get();
     }
+
+
 }

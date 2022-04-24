@@ -19,6 +19,7 @@ use App\MasterHead;
 use App\Student;
 use App\Fee_allocation_tbl;
 use App\Fee_allocation_details;
+use App\Manage_fee_head;
 use Illuminate\Support\Facades\DB;
 
 class FeemanagementController extends Controller
@@ -233,20 +234,40 @@ class FeemanagementController extends Controller
     
     public function feeheads_setup()
     {
-        $fee_heads=$this->feehead->get_head_data();
-      
-      
-    	return view('Fee_management/feeheads_setup',compact('fee_heads'));
+        $fee_heads=$this->feehead->get_head_data();       
+    	return view('Fee_management/feeheads_setup',compact('fee_heads')); 
     }
+
+    public function feeheads_alc_store(Request $request)
+    {    
+            $data['fee_heading'] = $request->fee_heading;
+            $data['frequency'] = $request->frequency;
+            $data['from_date'] = $request->from_date;
+            $data['to_date'] = $request->to_date;
+            $data['due_date'] = $request->due_date; 
+            $data['refundable'] = $request->refundable;
+            $data['class'] = $request->class;
+            $data['value'] = $request->value;
+            $data['quater'] = $request->quater;
+            Manage_fee_head::create($data);  
+            return redirect()->route('admin.feeheads_setup')->withSuccess('Data inserted Successfully'); 
+    }
+
+    public function groupname_alc_store(Request $request)
+    {    
+            $data['name'] = $request->fee_heading; 
+            Manage_fee_head::create($data);  
+            return redirect()->route('admin.feeheads_setup')->withSuccess('Data inserted Successfully'); 
+    }
+
+ 
     public function save_conssesion_form_data(Request $request)
     {
         
         $this->conssesion->savedata($request->all(),$request->count);
-        return redirect()->to('admin/Fee_management/feeconcession_setup');
-       
-      
-       
+        return redirect()->to('admin/Fee_management/feeconcession_setup'); 
     }
+
     public function get_student_data(Request $request)
     {
         return json_encode($this->conssesion->get_student_data($request->student_id));

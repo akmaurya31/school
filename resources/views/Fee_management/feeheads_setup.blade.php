@@ -46,16 +46,17 @@
       
       <!-- tile body -->
       <div class="tile-body collapse">
-      <form role="form" method='post' action="{{ route('Feeheads.alc_store') }}"> 
+      <form role="form" method='post' action="{{ route('Feemanagement.feeheads_alc_store') }}"> 
       {{ csrf_field() }}
           <div class="row">
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="feeHeadTxt">Fees Heading</label>
-              <input type="text" class="form-control two-db-source" name="feeHeadTxt" id="feeHeadTxt" placeholder=" fee heading " required>  
+              <input type="text" class="form-control two-db-source" name="fee_heading" id="feeHeadTxt" placeholder=" fee heading " required>  
             </div>
+            
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="frequencySel">Frequency</label>
-              <select class="form-control ak_select2" name="frequencySel" required> 
+              <select class="form-control ak_select2" name="frequency" required> 
                 <option>Quaterly</option> 
                 <option>Annually</option>
               </select>
@@ -63,7 +64,7 @@
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="fromDate">From Date</label>
               <div class='input-group datepicker ' data-format="L">
-                <input type='text' id="fromDate" name="fromDate" class="form-control" required />
+                <input type='text' id="fromDate" name="from_date" class="form-control" required />
                 <span class="input-group-addon">
                   <span class="fa fa-calendar"></span>
                 </span>
@@ -72,7 +73,7 @@
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="toDate">To Date</label>
               <div class='input-group datepicker ' data-format="L">
-                <input type='text' id="toDate" name="toDate" class="form-control" required />
+                <input type='text' id="toDate" name="to_date" class="form-control" required />
                 <span class="input-group-addon">
                   <span class="fa fa-calendar"></span>
                 </span>
@@ -81,7 +82,7 @@
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="dueDate">Due Date</label>
               <div class='input-group datepicker ' data-format="L">
-                <input type='text' id="dueDate" name="dueDate" class="form-control" required />
+                <input type='text' id="dueDate" name="due_date" class="form-control" required />
                 <span class="input-group-addon">
                   <span class="fa fa-calendar"></span>
                 </span>
@@ -90,7 +91,7 @@
             
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="refundSel">Refundable</label>
-              <select class="form-control ak_select2" name="refundSel" required> 
+              <select class="form-control ak_select2" name="refundable" required> 
                 <option>Yes</option> 
                 <option>No</option> 
                 <option>Partailly</option>
@@ -98,7 +99,7 @@
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="course">Course</label>
-              <select class="form-control ak_select2" name="course" required> 
+              <select class="form-control ak_select2" name="class" required> 
                 <option>V</option> 
                 <option>VI</option> 
                 <option>VII</option> 
@@ -108,7 +109,7 @@
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="displayTxt">Display Name</label>
-              <input type="text" class="form-control two-db-dest" name="displayTxt" id="displayTxt" placeholder="name" required>  
+              <input type="text" class="form-control two-db-dest" name="quater" id="displayTxt" placeholder="name" required>  
             </div>
             <div class="form-group col-xs-12">
               <label for="displayTxt">Select Months when fees due</label>
