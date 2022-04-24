@@ -46,7 +46,7 @@
       
       <!-- tile body -->
       <div class="tile-body collapse">
-      <form role="form" method='post' action="{{ route('Feemanagement.feeheads_alc_store') }}"> 
+      <form role="form" method='post' id="formid" action="{{ route('Feemanagement.feeheads_alc_store') }}"> 
       {{ csrf_field() }}
           <div class="row">
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -64,11 +64,12 @@
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="fromDate">From Date</label>
               <div class='input-group datepicker ' data-format="L">
-                <input type='text' id="fromDate" name="from_date" class="form-control" required />
+                <input type='text' id="fromDate" name="from_date" class="form-control e_from_date" required />
                 <span class="input-group-addon">
                   <span class="fa fa-calendar"></span>
-                </span>
-              </div>
+                </span>  
+              </div> 
+              <small class="form-text text-danger e_error" id="err_from_date"></small>
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="toDate">To Date</label>
@@ -76,8 +77,9 @@
                 <input type='text' id="toDate" name="to_date" class="form-control" required />
                 <span class="input-group-addon">
                   <span class="fa fa-calendar"></span>
-                </span>
+                </span>               
               </div>
+               <small class="form-text text-danger e_error" id="err_to_date"></small>
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="dueDate">Due Date</label>
@@ -87,6 +89,7 @@
                   <span class="fa fa-calendar"></span>
                 </span>
               </div>
+              <small class="form-text text-danger e_error" id="err_due_date"></small>
             </div>
             
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -163,7 +166,7 @@
                 <button type="reset" class="btn btn-red">Reset</button>
               </div> 
               <div>
-                <button type="submit" data-value="New Vendor Added" class="btn btn-blue">Submit</button>
+                <button type="button" data-value="New Vendor Added" class="btn btn-blue chkSubmit">Submit</button>
               </div>
             </div> 
             </div>
@@ -659,12 +662,69 @@
 ============================================= -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery/jquery-1.11.2.min.js"></script>')</script>-->
+@section('footer_scripts')
 <script>
-$(function(){
-  $("button[title='Edit']").on('click',function(){
+$(function(){ 
+  $("button[title='Edit']").on('click',function(){ 
     $("#editFormModal").modal('show');
   });
 });
+
+function validation_mobile() {
+        var flag = 1;
+        $('.e_error').html('');
+        var from_date= $('#fromDate').val();
+        var to_date= $('#toDate').val();
+        var due_date= $('#dueDate').val();
+        //alert(from_date); 
+        if(from_date==''){
+            msg = "From date should not blank";
+            flag = 20;
+            $('#err_from_date').html(msg); 
+        }else if(to_date==''){
+            msg = "To date should not blank";
+            flag = 20;
+            $('#err_to_date').html(msg); 
+
+        }else if(due_date==''){
+            msg = "Due date should not blank";
+            flag = 20;
+            $('#err_due_date').html(msg);  
+        } 
+
+        // dtf = yfrom_date.val().split('-');
+        // dtff = dtf[1] + '-' + dtf[0] + '-' + dtf[2];
+
+        // dty = yto_date.val().split('-');
+        // dtyy = dty[1] + '-' + dty[0] + '-' + dty[2];
+
+
+        if (due_date < to_date) {
+            //alert("afa");
+            $('#err_due_date').html('DUE DATE WILL BE BEYOUD TO DATE');
+            flag = 20;
+        }  
+
+        var msg = ''; 
+        var params = {};
+        params['msg'] = msg;
+        params['flag'] = flag;  
+        return params;
+    }
+
+
+
+//https://www.codewall.co.uk/add-jquery-ajax-loading-spinners-to-your-website/ 
+    //Ajax all beforesend Sucesss 
+    $(".chkSubmit").click(function() {   
+        var valid_flag = validation_mobile();
+        if (valid_flag.flag == 1) { 
+          $("#formid").submit();
+        }  
+    }) 
+
+     
+
 
 </script>
 <!--

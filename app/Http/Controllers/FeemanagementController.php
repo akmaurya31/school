@@ -61,8 +61,7 @@ class FeemanagementController extends Controller
 
         $HeadMaster = DB::table('head_master')
         ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')  
-        ->get();
-        
+        ->get(); 
         $classes = Classes::where('Status',1)->get();
 
 
@@ -225,9 +224,9 @@ class FeemanagementController extends Controller
     {    
             $data['fee_heading'] = $request->fee_heading;
             $data['frequency'] = $request->frequency;
-            $data['from_date'] = $request->from_date;
-            $data['to_date'] = $request->to_date;
-            $data['due_date'] = $request->due_date; 
+            $data['from_date'] = date("Y-m-d", strtotime($request->from_date));  
+            $data['to_date'] = date("Y-m-d", strtotime($request->to_date)); 
+            $data['due_date'] = date("Y-m-d", strtotime($request->due_date)); 
             $data['refundable'] = $request->refundable;
             $data['class'] = $request->class;
             $data['value'] = $request->value;

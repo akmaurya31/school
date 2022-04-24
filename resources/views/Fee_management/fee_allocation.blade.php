@@ -101,7 +101,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($HeadMaster as $key)
+                  
+                  @foreach($HeadMaster as $key) 
                   <tr>
                     <td><br/><input type="checkbox" name="headbox[<?=$key->id?>]" class="checkAll" value="<?=$key->id?>"/></td>
                     <td><label for="tutionTxt">{{ $key->head_name }}</label></td> 
