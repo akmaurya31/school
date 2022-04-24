@@ -217,7 +217,8 @@ class FeemanagementController extends Controller
     public function feeheads_setup()
     {
         $fee_heads=$this->feehead->get_head_data();       
-    	return view('Fee_management/feeheads_setup',compact('fee_heads')); 
+        $classes = Classes::where('Status',1)->get();
+    	return view('Fee_management/feeheads_setup',compact('fee_heads'),['classes'=>$classes]); 
     }
 
     public function feeheads_alc_store(Request $request)
@@ -230,15 +231,15 @@ class FeemanagementController extends Controller
             $data['refundable'] = $request->refundable;
             $data['class'] = $request->class;
             $data['value'] = $request->value;
-            $data['quater'] = $request->quater;
+            // $data['quater'] = $request->quater;
             Manage_fee_head::create($data);  
             return redirect()->route('admin.feeheads_setup')->withSuccess('Data inserted Successfully'); 
     }
 
    
-    public function groupname_alc_store(Request $request)
+    public function group_alc_store(Request $request)
     {    
-            $data['group_name'] = $request->fee_heading; 
+            $data['group_name'] = $request->group_name; 
             GroupMaster::create($data);  
             return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
     }
@@ -246,7 +247,7 @@ class FeemanagementController extends Controller
 
     public function headname_alc_store(Request $request)
     {    
-            $data['head_name'] = $request->fee_heading; 
+            $data['head_name'] = $request->head_name; 
             HeadnameMaster::create($data);  
             return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
     }

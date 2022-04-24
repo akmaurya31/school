@@ -166,8 +166,7 @@
 
 
 
-<form role="form" method='post' action="{{ route('Feemanagement.group_alc_store') }}">
-{{ csrf_field() }} 
+
 <!-- create concession group detials -->
 <div id="formModal1" class="modal fade">
    <div class="modal-dialog" role="document">
@@ -180,27 +179,27 @@
                <h2> Group Name Setup </h2>
             </div>
          </div>
-         <form>
+         <form role="form" method='post' action="{{ route('Feemanagement.group_alc_store') }}">
+            {{ csrf_field() }} 
             <div class="modal-body row">
                <div class="form-group col-sm-4 col-xs-12">
                   <label for="grpName">Group Name</label> 
                </div>
                <div class="form-group col-sm-8 col-xs-12">
-                  <input type="text" class="form-control" name="grpName" id="grpName" placeholder="grp1">     
+                  <input type="text" class="form-control" name="group_name" id="grpName" placeholder="grp1">     
                </div>
             </div>
             <div class="modal-footer">
                <button type="reset" class="btn btn-red">Reset</button>
                <button type="submit" class="btn btn-blue">Create<i class="fa fa-floppy-o"></i></button>
             </div>
-         </form>
+            </form> 
       </div>
    </div>
 </div>
-</form> 
 
-<form role="form" method='post' action="{{ route('Feemanagement.headname_alc_store') }}"> 
-{{ csrf_field() }}
+
+
 <!-- create concession group detials -->
 <div id="formModal2" class="modal fade">
    <div class="modal-dialog" role="document">
@@ -213,24 +212,25 @@
                <h2> Head Name Setup </h2>
             </div>
          </div>
-         <form>
+         <form role="form" method='post' action="{{ route('Feemanagement.headname_alc_store') }}"> 
+            {{ csrf_field() }}
             <div class="modal-body row">
                <div class="form-group col-sm-4 col-xs-12">
                   <label for="grpName">Head Name</label> 
                </div>
                <div class="form-group col-sm-8 col-xs-12">
-                  <input type="text" class="form-control" name="grpName" id="grpName" placeholder="grp1">     
+                  <input type="text" class="form-control" name="head_name" id="grpName" placeholder="grp1">     
                </div>
             </div>
             <div class="modal-footer">
                <button type="reset" class="btn btn-red">Reset</button>
                <button type="submit" class="btn btn-blue">Create<i class="fa fa-floppy-o"></i></button>
             </div>
-         </form>
+            </form>
       </div>
    </div>
 </div>
-</form>
+
 
 <form role="form" method='post' action="{{ route('Feemanagement.head_alc_store') }}"> 
 {{ csrf_field() }}

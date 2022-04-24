@@ -98,20 +98,22 @@
               </select>
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="course">Course</label>
+              <label for="course">Class</label>
+              
               <select class="form-control ak_select2" name="class" required> 
-                <option>V</option> 
-                <option>VI</option> 
-                <option>VII</option> 
-                <option>VIII</option> 
-                <option>IX</option> 
-              </select>
+              <option selected="selected" value="-1">--Select--</option>
+              @foreach($classes as $keyc)
+              <option value="{{$keyc->id}}">{{ $keyc->title }}</option>
+              @endforeach
+              </select> 
             </div>
-            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <!-- <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="displayTxt">Display Name</label>
               <input type="text" class="form-control two-db-dest" name="quater" id="displayTxt" placeholder="name" required>  
-            </div>
-            <div class="form-group col-xs-12">
+            </div> -->
+
+
+            <!-- <div class="form-group col-xs-12">
               <label for="displayTxt">Select Months when fees due</label>
               <div class="display-checks">
                 <input type="checkbox" name="january" id="january">
@@ -150,7 +152,9 @@
                 <input type="checkbox" name="dec" id="dec">
                 <label for="january">December</label>
               </div>
-            </div>
+            </div> -->
+
+
           </div>  
           <div class="submit-holder">
             <div class="row">
