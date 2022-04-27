@@ -28,7 +28,7 @@
                <!-- tile header -->
                <div class="tile-header bg-blue dvd dvd-btm modal-action">
                   <h1 class="custom-font">
-                     <strong>Groupname Master</strong>
+                     <strong>GroupWing Master</strong>
                   </h1>
                   <a role="button" id="get-first-modal" tabindex="0">Create new</a>
                </div>
@@ -42,6 +42,7 @@
                               <th class="stl_th1"></th>
                               <th class="stl_th2">SL</th>
                               <th class="stl_th3">Group Name</th>
+                              <th class="stl_th3">Classes</th>
                               <th class="stl_th10 action_icons_th">Actions</th>
                            </tr>
                         </thead>
@@ -52,6 +53,7 @@
                               <td></td>
                               <td>{{ $loop->iteration }}</td>
                               <td>{{ $key->group_name }}</td>
+                              <td>{{ $key->classes }}</td>
                               <td>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
@@ -127,11 +129,11 @@
                            <tr>
                               <th class="stl_th1"></th>
                               <th class="stl_th2">SL</th>
-                              <th class="stl_th4">Head Name</th>
-                              <th class="stl_th5">Rate</th>
-                              <th class="stl_th6">Frequency</th>
+                              <th class="stl_th4">Head Name</th>                              
+                              <!-- <th class="stl_th6">Frequency</th> -->
                               <th class="stl_th6">Group</th>
-                              <th class="stl_th6">Class</th>
+                              <!-- <th class="stl_th6">Class</th> -->
+                              <th class="stl_th5">Rate</th>
                               <th class="stl_th10 action_icons_th">Actions</th>
                            </tr>
                            
@@ -141,11 +143,11 @@
                              
                               <td></td>
                               <td>{{ $loop->iteration }}</td>
-                              <td>{{ $key->head_name }}</td>
-                              <td>{{ $key->rate }}</td>
-                              <td>{{ $key->frequency }}</td>
+                              <td>{{ $key->head_name }}</td>                              
+                              <!-- <td>{{ $key->frequency }}</td> -->
                               <td>{{ $key->group_name }}</td>
-                              <td>{{ $key->title }}</td>
+                             
+                              <td>{{ $key->rate }}</td>
                               <td>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
                                  <button class="btn badge badge-warning" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
@@ -255,9 +257,9 @@
                   <tr>
                     <th class="stl_th1">Head Name</th>
                     <th class="stl_th2">Rate</th>
-                    <th class="stl_th2">Frequency</th>
+                    <!-- <th class="stl_th2">Frequency</th> -->
                     <th class="stl_th2">Group</th>
-                    <th class="stl_th2">Class</th>
+                    <!-- <th class="stl_th2">Class</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -270,14 +272,14 @@
                     <input type="number" maxlength="6" min="0" class="form-control" name="rate[{{$key->id}}]" id="transportTxt">
                      
                      </td>
-                    <td>
+                    <!-- <td>
                        <select class="form-control" name="frequency[{{$key->id}}]" required> 
                        <option selected="selected" value="-1">--Select--</option>
                         <option>Annual</option> 
                         <option>Quarterly</option>
                         <option>Half Yearly</option>
                         </select>          
-                   </td>
+                   </td> -->
 
                    <td> <select class="form-control ak_select2" name="group_id[{{$key->id}}]" id="grpNameSel" required> 
               <option selected="selected" value="-1">--Select--</option>
@@ -286,14 +288,14 @@
               @endforeach 
             </select> </td>
 
-                   <td>
+                   <!-- <td>
                    <select class="form-control ak_select2" name="class_id[{{$key->id}}]" id="feeForSel" required> 
                    <option selected="selected" value="-1">--Select--</option>
               @foreach($classes as $keyc)
               <option value="{{$keyc->id}}">{{ $keyc->title }}</option>
               @endforeach 
             </select>
-            </td>
+            </td> -->
                    
                   </tr> 
                 

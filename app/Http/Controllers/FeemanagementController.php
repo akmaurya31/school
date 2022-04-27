@@ -44,9 +44,14 @@ class FeemanagementController extends Controller
         // ->get();  
         $classes = Classes::where('Status',1)->get();
 
+        // $HeadMaster = DB::table('head_master')
+        // ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')
+        // ->join('classmaster', 'head_master.class_id', '=', 'classmaster.id') 
+        // ->join('group_master', 'head_master.group_id', '=', 'group_master.id')  
+        // ->get();
+
         $HeadMaster = DB::table('head_master')
-        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')
-        ->join('classmaster', 'head_master.class_id', '=', 'classmaster.id') 
+        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id') 
         ->join('group_master', 'head_master.group_id', '=', 'group_master.id')  
         ->get();
         
@@ -60,7 +65,8 @@ class FeemanagementController extends Controller
         //$HeadMaster = HeadMaster::get();
 
         $HeadMaster = DB::table('head_master')
-        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')  
+        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id')
+        ->groupByRaw('headname_id')  
         ->get(); 
         $classes = Classes::where('Status',1)->get();
 
@@ -252,16 +258,18 @@ class FeemanagementController extends Controller
     }
 
     public function head_alc_store(Request $request)
-    {    
+    {             
             foreach($request->head_id as $k=>$v){
-                $data['frequency'] = $request->frequency[$v]; 
+                
+
+                // $data['frequency'] = $request->frequency[$v]; 
                 $data['headname_id'] = $request->head_id[$v]; 
                 $data['rate'] = $request->rate[$v]; 
                 $data['group_id'] = $request->group_id[$v];  
-                $data['class_id'] = $request->class_id[$v];   
-                HeadMaster::create($data);  
+                // ///$data['class_id'] = $request->class_id[$v];   
+                 HeadMaster::create($data);  
             }
-            return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
+         return redirect()->route('admin.fee_group')->withSuccess('Data inserted Successfully'); 
     }
  
     public function save_conssesion_form_data(Request $request)

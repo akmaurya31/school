@@ -45,18 +45,18 @@
 
         <div class="row">
 
-        <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <!-- <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <label for="feeForSel">Fees For Class</label>
             <select class="form-control ak_select2" name="class_id" id="feeForSel" required> 
               @foreach($classes as $key)
               <option value="{{$key->id}}">{{ $key->title }}</option>
               @endforeach 
             </select>
-          </div>
+          </div> -->
 
           <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
             <label for="grpNameSel">Group Name</label>
-            <select class="form-control ak_select2" name="group_id" id="grpNameSel" required> 
+            <select class="form-control ak_select2" name="group_id" id="grpNameSelxx" required> 
               <option selected="selected" value="-1">--Select--</option>
               @foreach($GroupMaster as $key)
               <option value="{{$key->id}}">{{ $key->group_name }}</option>
@@ -100,24 +100,24 @@
                     <th class="stl_th14">Mar</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="addrow">
                   
                   @foreach($HeadMaster as $key) 
                   <tr>
                     <td><br/><input type="checkbox" name="headbox[<?=$key->id?>]" class="checkAll" value="<?=$key->id?>"/></td>
                     <td><label for="tutionTxt">{{ $key->head_name }}</label></td> 
-                    <td><input type="number" name="mon_m4[<?=$key->id?>]" id="mon_m4"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m5[<?=$key->id?>]" id="mon_m5"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m6[<?=$key->id?>]" id="mon_m6"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m7[<?=$key->id?>]" id="mon_m7"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m8[<?=$key->id?>]" id="mon_m8"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m9[<?=$key->id?>]" id="mon_m9"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m10[<?=$key->id?>]" id="mon_m10"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m11[<?=$key->id?>]" id="mon_m11"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m12[<?=$key->id?>]" id="mon_m12"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m1[<?=$key->id?>]" id="mon_m1"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m2"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
-                    <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m3"  value="{{ $valk=$key->rate/$key->frequency }}"></td>
+                    <td><input type="number" name="mon_m4[<?=$key->id?>]" id="mon_m4"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m5[<?=$key->id?>]" id="mon_m5"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m6[<?=$key->id?>]" id="mon_m6"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m7[<?=$key->id?>]" id="mon_m7"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m8[<?=$key->id?>]" id="mon_m8"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m9[<?=$key->id?>]" id="mon_m9"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m10[<?=$key->id?>]" id="mon_m10"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m11[<?=$key->id?>]" id="mon_m11"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m12[<?=$key->id?>]" id="mon_m12"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m1[<?=$key->id?>]" id="mon_m1"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m2"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m3"  value="{{ $valk=$key->rate*6 }}"></td>
                   </tr>
                   @endforeach  
                 </tbody>
@@ -254,12 +254,29 @@
 <!-- ============================================
 ============== Vendor JavaScripts ===============
 ============================================= -->
+@section('footer_scripts')
+
 <script>
 
 $(function(){
   $("#modalClick").on('click',function(){
     $("#formModal").modal('show');
   });
+
+  $('#grpNameSelxx').change(()=>{
+    //alert("Asdfa");
+    if ( $('#grpNameSelxx option:selected').val() == '7')
+      {        
+        $("#fee-allocate-grpName").show();
+
+
+
+         
+      }
+  });
+
+
+
 });
 
 </script>

@@ -2173,9 +2173,12 @@ $(function(){
   $('#fee-allocate-tbl--details').hide();
   // selecting first drop down value
   $('#grpNameSel').change(()=>{
-    if ( $('#grpNameSel option:selected').val() == '1')
+    alert("Asdfa");
+    if ( $('#grpNameSel option:selected').val() == '7')
       {
+        
         $("#fee-allocate-grpName").show();
+        $('#fee-allocate-tbl--details').show();
       }
   });
   // selecting second drop down value
