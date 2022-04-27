@@ -45,62 +45,51 @@
       <!-- /tile header -->
       
       <!-- tile body -->
-      <div class="tile-body collapse">
-        <form role="form" class="box">
-          <div class="row">
-            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="headSel">Select Head</label>
-              <select class="form-control ak_select2" name="headSel" required> 
-                <option>Select</option> 
-                <option>option 1</option> 
-                <option>option 2</option> 
-                <option>option 3</option> 
-                <option>option 4</option> 
-              </select>
-            </div>
+      <div class="tile-body collapse"> 
+        <form role="form" method='post' class="box" action="{{ route('Feemanagement.fine_store') }}">
+         {{ csrf_field() }}
+          <div class="row"> 
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="fineType">Fine Type</label>
               <select class="form-control ak_select2" name="fineType" required> 
                 <option>Select</option> 
-                <option>Percentage</option> 
-                <option>option 2</option> 
-                <option>option 3</option> 
-                <option>option 4</option> 
+                <option value='1'>Fixed</option>                 
               </select>
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="fineVAl">Fine Value</label>
-              <input type="number" class="form-control" name="fineVAl" id="fineVAl" placeholder="0" required>  
+              <input type="number" class="form-control" name="fine_value" id="fine_value" placeholder="0" required>  
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="onEveryDay">On Every (days)</label>
-              <input type="number" class="form-control" name="onEveryDay" id="onEveryDay" placeholder="0" required>  
+              <input type="number" class="form-control" name="on_everyday" id="on_everyday" placeholder="0" required>  
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="onUpto">Up To (days)</label>
-              <input type="number" class="form-control" name="onUpto" id="onUpto" placeholder="0" required>  
+              <input type="number" class="form-control" name="up_to" id="up_to" placeholder="0" required>  
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="feeTypeSel">Fees Type</label>
-              <select class="form-control ak_select2" name="feeTypeSel" required> 
+              <select class="form-control ak_select2" name="fee_type" required> 
                 <option>Select</option> 
-                <option>Monthwise</option> 
-                <option>Quaterly</option> 
-                <option>Annualy</option>
+                <option value='12'>Monthwise</option> 
+                <option value='3'>Quaterly</option> 
+                <option value='6'>Half Yearly</option>
+                <option value='1'>Annualy</option>
               </select>
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="amtPerTxt">Amount Percentage</label>
-              <input type="number" class="form-control" name="amtPerTxt" id="amtPerTxt" placeholder="0" required>  
+              <input type="number" class="form-control" name="amount_percent" id="amount_percent" placeholder="0" required>  
             </div>
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="batch">Exclude Fine Month</label>
-              <select class="form-control ak_select2" name="batch" required> 
+              <select class="form-control ak_select2" name="fine_month" required> 
                 <option>Select</option> 
-                <option>April</option> 
-                <option>May</option> 
-                <option>June</option> 
-                <option>July</option> 
+                <option value='4'>April</option> 
+                <option value='5'>May</option> 
+                <option value='6'>June</option> 
+                <option value='7'>July</option> 
               </select>
             </div>
           </div>  
@@ -209,6 +198,7 @@
 ============================================= -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery/jquery-1.11.2.min.js"></script>')</script> -->
+@section('footer_scripts')
 <script>
 $(function(){
   $("#modalClick").on('click',function(){

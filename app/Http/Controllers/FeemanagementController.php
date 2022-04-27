@@ -20,6 +20,7 @@ use App\Student;
 use App\Fee_allocation_tbl;
 use App\Fee_allocation_details;
 use App\Manage_fee_head;
+use App\Fine_setups;
 use Illuminate\Support\Facades\DB;
 
 class FeemanagementController extends Controller
@@ -74,6 +75,24 @@ class FeemanagementController extends Controller
         $groups=$this->group->get_groups_data();
         return view('Fee_management/fee_allocation',compact('groups'),['GroupMaster'=>$GroupMaster,'HeadnameMaster'=>$HeadnameMaster,'HeadMaster'=>$HeadMaster,'classes'=>$classes]);
         
+    }
+
+    public function fine_store(Request $request)
+    {     
+        //dd($request);
+        // die("ASdfa"); 
+        $InsertData['fine_type'] = $request->fine_type;   
+        $InsertData['fine_value'] = $request->fine_value;  
+        $InsertData['on_everyday'] = $request->on_everyday;  
+        $InsertData['up_to'] = $request->up_to;   
+        $InsertData['fee_type'] = $request->fee_type;  
+        $InsertData['amount_percent'] = $request->amount_percent; 
+        $InsertData['fine_month'] = $request->fine_month; 
+        
+
+        //$InsertData['fee_allocation_ids'] = implode(', ', $fee_alloca_Array);; 
+        Fine_setups::create($InsertData);  
+        return redirect()->route('admin.feefine_setup')->withSuccess('Data inserted Successfully'); 
     }
 
     public function alc_store(Request $request)
