@@ -39,15 +39,15 @@
     
     <!-- tile body -->
     <div class="tile-body ht-adjust-300">
-      <form role="form" class="box">
+      <!-- <form role="form" class="box"> -->
         <div class="row">
           <div class="form-group col-sm-6 col-xs-12">
             <label for="admissionNoInp">Admission Number</label>
-            <input type="text" class="form-control" name="admissionNoInp" id="admissionNoInp" required>
+            <input type="text" class="form-control" name="s_registered" id="s_registered" required>
           </div>
           <div class="form-group col-sm-6 col-xs-12">
             <div class="btn-align-row">
-            <button type="submit" data-value="Assigned" class="btn btn-blue"><i class="fa fa-search"></i>Assign</button>
+            <button type="button" data-value="" class="btn btn-blue Assigned"><i class="fa fa-search"></i>Assign</button>
             </div>
         </div>
         </div>
@@ -56,17 +56,17 @@
             <div class="profile-picture col-xs-6">
               <img src="http://oracleinfotech.in/demoschool/schoolmgt/assets/images/ici-avatar.jpg" alt="" class="img-responsive">
             </div>
-            <div class="search_results--lists">
-              <div><span>Name</span><span>Dhananjay</span></div>
+            <div class="search_results--lists  stu_div">
+              <!-- <div><span>Name</span><span>Dhananjay</span></div>
               <div><span>FName</span><span>Mehrotr11a</span></div>
               <div><span>Reg No</span><span>12345</span></div>
               <div><span>Roll No</span><span>12345</span></div>
               <div><span>Class</span><span>Nursery Daffodil</span></div>
-              <div><span>Section</span><span>B</span></div>
+              <div><span>Section</span><span>B</span></div> -->
             </div>
           </div>
         </div>
-      </form>
+      <!-- </form> -->
     </div>                        
     <!-- /tile body -->
     </section>
@@ -172,21 +172,20 @@
       <div class="row">
         <div class="form-group col-sm-6 col-xs-12">
           <label for="acdYear">Academic Year *</label>
-          <select class="form-control ak_select2" name="acdYear" required>
-            <option>2020-21</option>
-            <option>2019-20</option>
-            <option>2018-19</option>
-            <option>2017-18</option>
-            <option>2016-17</option>
-          </select>
+          <select class="form-control ak_select2" name="session" id="session" required> 
+              @foreach($sessionmaster as $key)
+              <option value="{{$key->id}}">{{ $key->title }}</option>
+              @endforeach 
+            </select>
         </div>
 
         <div class="form-group col-sm-6 col-xs-12">
           <label for="class">Wing *</label>
-          <select class="form-control ak_select2" name="class" required>
-            <option>JW 1</option>
-            <option>2nd</option>
-            <option>C</option>
+          <select class="form-control ak_select2" name="wing" id="wing" required>
+            <option value='1'>Junior Wing 1</option>
+            <option value='2'>Junior Wing 2</option>
+            <option value='3'>Senior WING 1</option>
+            <option value='4'>Senior WING 2</option>
           </select>
         </div>
         
@@ -194,16 +193,16 @@
 
         <div class="form-group col-sm-6 col-xs-12">
           <label for="class">Class *</label>
-          <select class="form-control ak_select2" name="class" required>
-            <option>1st</option>
-            <option>2nd</option>
-            <option>C</option>
-          </select>
+          <select class="form-control ak_select2" name="class" id="class" required> 
+              @foreach($classes as $key)
+              <option value="{{$key->id}}">{{ $key->title }}</option>
+              @endforeach 
+            </select>
         </div>
         
         <div class="form-group col-sm-6 col-xs-12">
           <label for="sems">Semesters *</label>
-          <select class="form-control ak_select2" name="state" required>
+          <select class="form-control ak_select2" name="semester" id="semester" required>
             <option>Semester 1</option>
             <option>Semester 2</option>
             <option>Semester 3</option>
@@ -212,14 +211,14 @@
         
         <div class="form-group col-sm-6 col-xs-12">
           <label for="class">Section *</label>
-          <select class="form-control ak_select2" name="class" required>
+          <select class="form-control ak_select2" name="section" name="section" required>
             <option>A</option>
             <option>B</option>
             <option>C</option>
           </select>
         </div>
         <div class="submit-holder form-group col-sm-12"> 
-          <button type="submit" class="btn btn-blue">Filters<i class="fa fa-filter"></i></button> 
+          <button type="button" class="btn btn-blue bfilters">Filters<i class="fa fa-filter"></i></button> 
         </div>
       </div>
     </div>  
@@ -449,39 +448,41 @@
     </div>
     <!-- /tile header -->
     <!-- tile body-->
+<form role="form" method='post' class="box" action="{{ route('Feemanagement.tp_store') }}" novalidate>
+         {{ csrf_field() }}
     <div class="tile-body">
       <div class="row">
         <div class="form-group col-sm-6 col-xs-12">
           <label for="fine">Fine *</label>
-          <input type="number" class="form-control" required>
+          <input type="number" class="form-control" name="fine" id="fine" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="fine">Concession *</label>
-          <input type="number" class="form-control" required>
+          <input type="number" class="form-control" name="concession" id="concession" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12 flex-col">
           <label for="waveChk">Wave Off</label>
-          <input type="checkbox" id required>
+          <input type="checkbox" name="wave" id="wave"  required>
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="totFee">Total Fees</label>
-          <input type="number" class="form-control" id="totFee" name="totFee" required>
+          <input type="number" class="form-control" id="totalfee" name="totalfee" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="paymentInp">Payment</label>
-          <input type="number" class="form-control" required>
+          <input type="number" class="form-control" id="payment" name="payment" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="balanceInp">Balance</label>
-          <input type="number" class="form-control" name="balanceInp" id="balanceInp"required>
+          <input type="number" class="form-control" name="balance" id="balance" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="remarksInp">Remarks</label>
-          <input type="text" class="form-control" id="remarksInp" required>
+          <input type="text" class="form-control" id="remarks" name="remarks"  required>
         </div>
         <div class="form-group col-sm-6 col-xs-12" id="payModeSelDiv">
           <label for="payModeSel">Pay Mode*</label>
-          <select class="form-control ak_select2" name="payModeSel" id="payModeSel" required>
+          <select class="form-control ak_select2" name="paymode" id="paymode" required>
             <option value="">Select</option>
             <option value="CASH">CASH</option>
             <option value="CHEQUE">CHEQUE</option>
@@ -489,28 +490,28 @@
             <option value="CARD">CARD</option>
           </select>
         </div>
-        <div class="form-group col-sm-6 col-xs-12" id="chequeNoDiv">
+        <div class="form-group col-sm-6 col-xs-12" id="chequeNoDiv" >
           <label for="chequeInp">Cheque Number</label>
-          <input type="number" class="form-control" id="chequeInp" maxlength="6" required>
+          <input type="number" class="form-control" id="chequeInp" name="chequeInp" maxlength="6" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12" id="utrNoDiv">
-          <label for="utrNoInp">UTR Number</label>
-          <input type="text" class="form-control" id="utrNoInp" required>
+          <label>UTR Number</label>
+          <input type="text" class="form-control" id="utrNoInp" name="utrNoInp" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12" id="cardNoDiv">
           <label for="cardNoInp">Card Number</label>
-          <input type="number" class="form-control" id="cardNoInp" required>
+          <input type="number" class="form-control" id="cardNoInp" name="cardNoInp" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12" id="cardTypeDiv">
           <label for="cardType">Card Type</label>
-          <select class="form-control ak_select2" name="cardType" id="cardType" required>
+          <select class="form-control ak_select2"   id="cardType"  name="cardType" required>
             <option value="CASH">Credit Card</option>
             <option value="CHEQUE">Debit Card</option>
           </select>
         </div>
         <div class="form-group col-sm-6 col-xs-12" id="bankNameDiv">
           <label for="bankNameSel">Bank</label>
-          <select class="form-control ak_select2" name="bankNameSel" id="bankNameSel" required>
+          <select class="form-control ak_select2"   id="bankNameSel" name="bankNameSel" required>
             <option value="CASH">SBI</option>
             <option value="CHEQUE">ICICI</option>
             <option value="ONLINE">HDFC</option>
@@ -519,7 +520,7 @@
         <div class="form-group col-sm-6 col-xs-12" id="onDateDiv">
           <label for="onDateSel">Date</label>
             <div class='input-group datepicker ' data-format="L">
-              <input type='text' id="onDateSel" name="onDateSel" class="form-control" required />
+              <input type='text' id="onDateSel"  name="onDateSel"  class="form-control" required />
               <span class="input-group-addon">
                 <span class="fa fa-calendar"></span>
               </span>
@@ -529,13 +530,15 @@
           <div class="row">
           <div class="col-sm-12 form__button--action">
           <div>
-        <a href="{{ route('admin.fee_reciepts') }}"> <button type="submit" class="btn btn-blue"> Pay Now</button></a>
+          <!-- <a href="{{ route('admin.fee_reciepts') }}"> </a> --> 
+          <button type="submit" class="btn btn-blue">Pay Now</button> 
           </div>
           </div> 
           </div>
         </div>
       </div>  
     </div>
+</form>
     </section>
   </div>
 </div>
@@ -580,57 +583,68 @@
 ============================================= -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery/jquery-1.11.2.min.js"></script>')</script> -->
+@section('footer_scripts')
 <script>
 $(function(){
+  //alert('asfasf');
   $("#modalClick").on('click',function(){
     $("#formModal").modal('show');
   });
+
+  $(".Assigned").on('click',function(){
+    //$("#formModal").modal('show');
+    var ad=$('#s_registered').val();
+ 				//activate(1);
+				$.ajax({
+					type : 'GET',
+					data : {s_registered : ad},
+					url  : 'studentDetails',
+					dataType: 'html',
+					success:function(response)
+					{
+            var obj = $.parseJSON(response);
+            var rs=obj.data;  
+            var div1="<div><span>Reg No</span><span>"+rs.s_registered+"</span></div>";
+            var div2="<div><span>Name</span><span>"+rs.s_first_name+rs.s_last_name+"</span></div>";
+            var div3="<div><span>Class</span><span>"+rs.s_class_id+"</span></div>";  
+            var students=div1+div2+div3; 
+             $('.stu_div').html(students);
+					}
+        });         
+  });
+
+
+  $(".bfilters").on('click',function(){
+    //$("#formModal").modal('show');
+    var session=$('#session').val();
+    var wing=$('#wing').val();
+    var bclass=$('#class').val();
+
+    console.log(session);
+
+    console.log(wing);
+    console.log(bclass);
+    
+ 				//activate(1);
+				$.ajax({
+					type : 'GET',
+					data : {session:session,wing:wing,bclass:bclass},
+					url  : 'studentDetails',
+					dataType: 'html',
+					success:function(response)
+					{
+            var obj = $.parseJSON(response);
+            var rs=obj.data;  
+            var div1="<div><span>Reg No</span><span>"+rs.s_registered+"</span></div>";
+            var div2="<div><span>Name</span><span>"+rs.s_first_name+rs.s_last_name+"</span></div>";
+            var div3="<div><span>Class</span><span>"+rs.s_class_id+"</span></div>";  
+            var students=div1+div2+div3; 
+             $('.stu_div').html(students);
+					}
+        });         
+  });
+
 });
 
-</script>
-<!--
-<script src="assets/js/vendor/bootstrap/bootstrap.min.js"></script>
-<script src="assets/js/vendor/jRespond/jRespond.min.js"></script>
-<script src="assets/js/vendor/d3/d3.min.js"></script>
-<script src="assets/js/vendor/d3/d3.layout.min.js"></script>
-<script src="assets/js/vendor/rickshaw/rickshaw.min.js"></script>
-<script src="assets/js/vendor/sparkline/jquery.sparkline.min.js"></script>
-<script src="assets/js/vendor/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="assets/js/vendor/animsition/js/jquery.animsition.min.js"></script>
-<script src="assets/js/vendor/daterangepicker/moment.min.js"></script>
-<script src="assets/js/vendor/daterangepicker/daterangepicker.js"></script>
-<script src="assets/js/vendor/screenfull/screenfull.min.js"></script>
-<script src="assets/js/vendor/flot/jquery.flot.min.js"></script>
-<script src="assets/js/vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
-<script src="assets/js/vendor/flot-spline/jquery.flot.spline.min.js"></script>
-<script src="assets/js/vendor/easypiechart/jquery.easypiechart.min.js"></script>
-<script src="assets/js/vendor/raphael/raphael-min.js"></script>
-<script src="assets/js/vendor/morris/morris.min.js"></script>
-<script src="assets/js/vendor/owl-carousel/owl.carousel.min.js"></script>
-<script src="assets/js/vendor/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-<script src="assets/js/vendor/chosen/chosen.jquery.min.js"></script>
-<script src="assets/js/vendor/summernote/summernote.min.js"></script>
-<script src="assets/js/vendor/coolclock/coolclock.js"></script>
-<script src="assets/js/vendor/coolclock/excanvas.js"></script>
-<script src="assets/js/select2.js"></script> 
-<script src="assets/js/main.js"></script>-->
-<!--/ Page Specific Scripts -->
-<!-- Datatable scripts -->
-<!--<script src="assets/js/vendor/datatable_net/jquery.dataTables.min.js"></script>
-<script src="assets/js/vendor/datatable_net/dataTables.autoFill.min.js"></script>
-<script src="assets/js/vendor/datatable_net/dataTables.select.min.js"></script>
-<script src="assets/js/vendor/datatable_net/dataTables.buttons.min.js"></script>
-<script src="assets/js/vendor/datatable_net/jszip.min.js"></script>
-<script src="assets/js/vendor/datatable_net/pdfmake.min.js"></script>
-<script src="assets/js/vendor/datatable_net/vfs_fonts.js"></script>
-<script src="assets/js/vendor/datatable_net/buttons.html5.min.js"></script>
-<script src="assets/js/vendor/datatable_net/buttons.colVis.min.js"></script>
-<script src="assets/js/vendor/datatable_net/buttons.print.min.js"></script> -->
-<!-- cutom js for data table  -->
-<!--<script src="assets/js/vendor/datatable_net/dataTables.options.js"></script> -->
-
-<!-- datatable-script ends-->
-
-<!--<script src="assets/js/fullscreen.js"></script> -->
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+</script> 
 @endsection

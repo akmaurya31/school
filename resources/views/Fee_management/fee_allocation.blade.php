@@ -265,12 +265,9 @@ $(function(){
 
   $('#grpNameSelxx').change(()=>{
     //alert("Asdfa");
-    if ( $('#grpNameSelxx option:selected').val() == '7')
+    if ( $('#grpNameSelxx option:selected').val() == '1')
       {        
-        $("#fee-allocate-grpName").show();
-
-
-
+        $("#fee-allocate-grpName").show(); 
          
       }
   });

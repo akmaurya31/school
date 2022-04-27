@@ -595,8 +595,11 @@ Route::group(['middleware' => ['auth','revalidate']], function () {
     Route::post('admin/Fee_management/group_alc_store', 'FeemanagementController@group_alc_store')->name('Feemanagement.group_alc_store');
 
     Route::post('admin/Fee_management/fine_store', 'FeemanagementController@fine_store')->name('Feemanagement.fine_store'); 
+    Route::post('admin/Fee_management/tp_store', 'FeemanagementController@tp_store')->name('Feemanagement.tp_store');
+    
+    //Route::post('admin/Fee_management/studentDetails', 'FeemanagementController@studentDetails')->name('Feemanagement.studentDetails');
+    Route::get('admin/Fee_management/studentDetails', 'FeemanagementController@studentDetails')->name('admin.studentDetails');
 
-   
     //Route::get('admin/get-row-data/{table}/{id}/{value}', 'HostelController@get_row_data')->name('admin.edit-hostel');
 
    

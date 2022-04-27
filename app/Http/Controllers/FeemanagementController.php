@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Feemanagement;
 use App\FeeGroup;
 use App\Classes;
+use App\Students;
+use App\Sessionmaster;
 use App\ManageFeeHead;
 use App\Department;
 use App\GroupMaster;
@@ -21,6 +23,7 @@ use App\Fee_allocation_tbl;
 use App\Fee_allocation_details;
 use App\Manage_fee_head;
 use App\Fine_setups;
+use App\Take_payments;
 use Illuminate\Support\Facades\DB;
 
 class FeemanagementController extends Controller
@@ -77,6 +80,48 @@ class FeemanagementController extends Controller
         
     }
 
+    public function studentDetails(Request $request){ 
+        //$Students = Students::find($request->s_registered); 
+        //$class = Classes::find($request->id);
+        if($request->s_registered!=''){
+        $Students = DB::select("SELECT * FROM students where s_registered='$request->s_registered'");
+        $Students = $Students[0];
+        }
+
+        if($request->session!='' && $request->wing!='' && $request->bclass!='' ){
+        $Students = DB::select("SELECT * FROM students where s_class_id='$request->bclass' and s_session='$request->session'");
+        }
+
+    	$data['status'] = true;
+    	$data['msg'] = 'class has been deleted';
+        $data['data'] = $Students;
+    	echo json_encode($data);
+    }
+
+
+    public function tp_store(Request $request)
+    {      
+        $InsertData['fine'] = $request->fine;   
+        $InsertData['concession'] = $request->concession;  
+        $InsertData['wave'] = $request->wave;  
+        $InsertData['totalfee'] = $request->totalfee;   
+        $InsertData['payment'] = $request->payment;  
+        $InsertData['balance'] = $request->balance; 
+        $InsertData['remarks'] = $request->remarks;  
+
+        $InsertData['paymode'] = $request->paymode; 
+        $InsertData['chequeInp'] = $request->chequeInp; 
+        $InsertData['utrNoInp'] = $request->utrNoInp; 
+        $InsertData['cardNoInp'] = $request->cardNoInp; 
+        $InsertData['bankNameSel'] = $request->bankNameSel; 
+        $InsertData['onDateSel'] = $request->onDateSel;   
+
+        Take_payments::create($InsertData);  
+        return redirect()->route('admin.fee_paymenthistory')->withSuccess('Data inserted Successfully'); 
+    }
+
+
+
     public function fine_store(Request $request)
     {     
         //dd($request);
@@ -87,9 +132,8 @@ class FeemanagementController extends Controller
         $InsertData['up_to'] = $request->up_to;   
         $InsertData['fee_type'] = $request->fee_type;  
         $InsertData['amount_percent'] = $request->amount_percent; 
-        $InsertData['fine_month'] = $request->fine_month; 
-        
-
+        $InsertData['fine_month'] = $request->fine_month;  
+       
         //$InsertData['fee_allocation_ids'] = implode(', ', $fee_alloca_Array);; 
         Fine_setups::create($InsertData);  
         return redirect()->route('admin.feefine_setup')->withSuccess('Data inserted Successfully'); 
@@ -380,7 +424,9 @@ class FeemanagementController extends Controller
     
      public function fee_paymenthistory()
     {
-    	return view('Fee_management/fee_paymenthistory');
+        $classes = Classes::where('Status',1)->get();
+        $sessionmaster = Sessionmaster::where('Status',1)->get();
+    	return view('Fee_management/fee_paymenthistory',['classes'=>$classes,'sessionmaster'=>$sessionmaster]);
     }
     
     public function fee_reciepts()
