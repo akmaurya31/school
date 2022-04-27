@@ -523,7 +523,7 @@ Navigation <i class="fa fa-angle-up"></i>
             <li><a href="{{ route('admin.fee_group') }}"><i class="fa fa-caret-right"></i>Create Group & Head</a></li>
             <li><a href="{{ route('admin.fee_allocation') }}"><i class="fa fa-caret-right"></i>Fee Allocation</a></li>
                 <li><a href="{{ route('admin.feeheads_setup') }}"><i class="fa fa-caret-right"></i>Manage Fee Heads</a></li>
-                <li><a href="{{ route('admin.feeconcession_setup') }}"><i class="fa fa-caret-right"></i>Create Concession</a></li>
+                <!-- <li><a href="{{ route('admin.feeconcession_setup') }}"><i class="fa fa-caret-right"></i>Create Concession</a></li> -->
                 <li><a href="{{ route('admin.feefine_setup') }}"><i class="fa fa-caret-right"></i>Fine Setup</a></li>
     </ul> 
     </li>

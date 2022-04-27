@@ -58,7 +58,7 @@
             </div>
             <div class="search_results--lists">
               <div><span>Name</span><span>Dhananjay</span></div>
-              <div><span>FName</span><span>Mehrotra</span></div>
+              <div><span>FName</span><span>Mehrotr11a</span></div>
               <div><span>Reg No</span><span>12345</span></div>
               <div><span>Roll No</span><span>12345</span></div>
               <div><span>Class</span><span>Nursery Daffodil</span></div>
@@ -180,14 +180,18 @@
             <option>2016-17</option>
           </select>
         </div>
+
         <div class="form-group col-sm-6 col-xs-12">
-          <label for="sems">Semesters *</label>
-          <select class="form-control ak_select2" name="state" required>
-            <option>Semester 1</option>
-            <option>Semester 2</option>
-            <option>Semester 3</option>
+          <label for="class">Wing *</label>
+          <select class="form-control ak_select2" name="class" required>
+            <option>JW 1</option>
+            <option>2nd</option>
+            <option>C</option>
           </select>
         </div>
+        
+       
+
         <div class="form-group col-sm-6 col-xs-12">
           <label for="class">Class *</label>
           <select class="form-control ak_select2" name="class" required>
@@ -196,6 +200,16 @@
             <option>C</option>
           </select>
         </div>
+        
+        <div class="form-group col-sm-6 col-xs-12">
+          <label for="sems">Semesters *</label>
+          <select class="form-control ak_select2" name="state" required>
+            <option>Semester 1</option>
+            <option>Semester 2</option>
+            <option>Semester 3</option>
+          </select>
+        </div>
+        
         <div class="form-group col-sm-6 col-xs-12">
           <label for="class">Section *</label>
           <select class="form-control ak_select2" name="class" required>

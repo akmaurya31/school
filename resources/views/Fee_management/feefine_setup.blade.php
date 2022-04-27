@@ -49,41 +49,53 @@
         <form role="form" method='post' class="box" action="{{ route('Feemanagement.fine_store') }}">
          {{ csrf_field() }}
           <div class="row"> 
-            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="fineType">Fine Type</label>
-              <select class="form-control ak_select2" name="fineType" required> 
+
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <label for="feeTypeSel">Session</label>
+              <select class="form-control ak_select2" name="fee_type" required> 
                 <option>Select</option> 
-                <option value='1'>Fixed</option>                 
+                <option value='19'>2019-2020</option> 
+                <option value='20'>2020-2021</option> 
+                <option value='21'>2021-2022</option> 
+                <option value='22'>2022-2023</option> 
               </select>
             </div>
+
+
+          <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <label for="feeTypeSel">Wing</label>
+              <select class="form-control ak_select2" name="fee_type" required> 
+                <option>Select</option> 
+                <option value='1'>JUNIOR WING 1</option> 
+                <option value='2'>JUNIOR WING 2</option> 
+                <option value='3'>SENIOR WING 1</option>
+                <option value='4'>SENIOR WING 2</option>
+              </select>
+            </div>
+
+           
+             
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="fineVAl">Fine Value</label>
               <input type="number" class="form-control" name="fine_value" id="fine_value" placeholder="0" required>  
             </div>
-            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <!-- <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
               <label for="onEveryDay">On Every (days)</label>
               <input type="number" class="form-control" name="on_everyday" id="on_everyday" placeholder="0" required>  
-            </div>
+            </div> -->
+
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="onUpto">Up To (days)</label>
-              <input type="number" class="form-control" name="up_to" id="up_to" placeholder="0" required>  
-            </div>
-            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="feeTypeSel">Fees Type</label>
+              <label for="feeTypeSel">Fine Mode</label>
               <select class="form-control ak_select2" name="fee_type" required> 
                 <option>Select</option> 
-                <option value='12'>Monthwise</option> 
-                <option value='3'>Quaterly</option> 
-                <option value='6'>Half Yearly</option>
-                <option value='1'>Annualy</option>
+                <option value='1'>Per Day</option> 
+                <option value='7'>Every Week</option> 
+                <option value='30'>Every Month</option> 
               </select>
-            </div>
+            </div> 
+
             <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="amtPerTxt">Amount Percentage</label>
-              <input type="number" class="form-control" name="amount_percent" id="amount_percent" placeholder="0" required>  
-            </div>
-            <div class="form-group col-lg-3 col-md-4 col-sm-6 col-xs-12">
-              <label for="batch">Exclude Fine Month</label>
+              <label for="batch">Fine Month</label>
               <select class="form-control ak_select2" name="fine_month" required> 
                 <option>Select</option> 
                 <option value='4'>April</option> 
@@ -130,11 +142,12 @@
             <tr>
               <th class="stl_th1"></th>
               <th class="stl_th2">SL</th> 
-              <th class="stl_th4">Fine Type</th>
-              <th class="stl_th5">Fine Amount</th>
-              <th class="stl_th6">On Every(days)</th>
-              <th class="stl_th7">Upto(days)</th>
-              <th class="stl_th7">Amount Percentage</th>
+             
+              <th class="stl_th5">Session</th>
+              <th class="stl_th6">Wing</th>
+              <th class="stl_th7">Fine Value</th>
+              <th class="stl_th7">Fine Mode</th>
+              <th class="stl_th7">Fine Month</th>
               <th class="stl_th8 action_icons_th">Actions</th>
             </tr>
           </thead>
@@ -142,11 +155,12 @@
             @foreach($finedata as $key) 
             <tr>
               <td></td>
-              <td>1</td> 
-              <td>Fix</td>
+              <td>{{$key->id}}</td>
+             
               <td>{{$key->fine_value}}</td>
               <td>{{$key->on_everyday}}</td>
               <td>{{$key->up_to}}</td>
+              <td>{{$key->amount_percent}}</td>
               <td>{{$key->amount_percent}}</td>
               <td>
                 <button class="btn badge badge-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
