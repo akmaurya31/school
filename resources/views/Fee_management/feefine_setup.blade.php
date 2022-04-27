@@ -111,6 +111,8 @@
       </section>
       <!-- /tile -->
       </div>
+
+      
     <div class="col-md-12">
       <section class="tile">
         <!-- tile header -->
@@ -127,30 +129,33 @@
           <thead>
             <tr>
               <th class="stl_th1"></th>
-              <th class="stl_th2">SL</th>
-              <th class="stl_th3">Head Name</th>
+              <th class="stl_th2">SL</th> 
               <th class="stl_th4">Fine Type</th>
               <th class="stl_th5">Fine Amount</th>
               <th class="stl_th6">On Every(days)</th>
               <th class="stl_th7">Upto(days)</th>
+              <th class="stl_th7">Amount Percentage</th>
               <th class="stl_th8 action_icons_th">Actions</th>
             </tr>
           </thead>
           <tbody>
+            @foreach($finedata as $key) 
             <tr>
               <td></td>
-              <td>1</td>
-              <td>Bonus Charge</td>
-              <td>Percentage</td>
-              <td>350.00</td>
-              <td>40</td>
-              <td>50</td>
+              <td>1</td> 
+              <td>Fix</td>
+              <td>{{$key->fine_value}}</td>
+              <td>{{$key->on_everyday}}</td>
+              <td>{{$key->up_to}}</td>
+              <td>{{$key->amount_percent}}</td>
               <td>
                 <button class="btn badge badge-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></button>
                 <button class="btn badge badge-warning" data-toggle="tooltip" title="View"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
                 <button class="btn badge badge-warning" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
               </td>
             </tr>
+            @endforeach  
+
           </tbody>
         </table>
       </div>

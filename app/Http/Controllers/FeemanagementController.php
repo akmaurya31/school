@@ -206,7 +206,7 @@ class FeemanagementController extends Controller
     {
         $finedata = FineSetup::All();
 
-    	return view('Fee_management/feefine_setup',compact('finedata'));
+    	return view('Fee_management/feefine_setup',compact('finedata'),['finedata'=>$finedata]);
     }
 
     public function feefine_save(Request $request){
