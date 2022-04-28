@@ -315,11 +315,11 @@
                 </th>
               </tr>
             </thead>
-            <tbody> 
+            <tbody>  <?php  $i=1;    ?>
               @foreach($HeadMaster as $key) 
-                   <?php if($key->group_id==2){ ?>
+                   <?php   if($key->group_id==2){  ?>
                   <tr> 
-                    <td><br/><input type="checkbox" name="headbox[<?=$key->id?>]" data-row="<?=$key->id?>" class="checkAll chead" value="<?=$key->id?>"/></td>
+                    <td><br/><input type="checkbox" name="headbox[<?=$i?>]" data-row="<?=$i?>" class="checkAll cheadk" value="<?=$i; ?>"/></td>
                    
 
                     <td><label for="tutionTxt">{{ $key->head_name }}</label></td>
@@ -336,7 +336,7 @@
                     <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m2"  value="{{ $valk=$key->rate*6 }}"></td>
                     <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m3"  value="{{ $valk=$key->rate*6 }}"></td>
                   </tr>
-                  <?php } ?>
+                  <?php }  $i=$i+1; ?>
                   @endforeach  
             </tbody>
           </table>
@@ -533,26 +533,17 @@ $(function(){
   })
 
 
-  $(".chead").on('click',function(){  
-
-
-
-    
-    
-   // var 
-
-
+  $(".chead").on('click',function(){   
+    var totalfee=13600;
     $('#totalfee').val(totalfee); 
     $('#totalfee_hidden').val(totalfee); 
 
-    var totalfee=13600;
+    $(".cheadk").each(function() { 
+       console.log($(this).val()); 
+    });
+     
 
-
-  // $.each(rs, function(k, v){  
-  //             k=k+1;
-  //           htm +="<tr><td><input type='checkbox' name='chkTransport' id='chkTransport'></td><td>"+k+"</td><td>"+v.s_registered+"</td><td>"+v.s_first_name+v.s_last_name+"</td><td>"+v.s_class_id+"</td><td>V</td><td><button class='btn badge badge-warning' data-toggle='tooltip' title='View'><i class='fa fa-eye fa-2x' aria-hidden='true'></i></button></td></tr>";  
-	// 			  	}); 
-     });
+  });
 
 
   $("#fine").on('keyup',function(){  

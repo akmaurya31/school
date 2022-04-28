@@ -21,6 +21,7 @@ use App\MasterHead;
 use App\Student;
 use App\Fee_allocation_tbl;
 use App\Fee_allocation_details;
+use App\Take_payment_details;
 use App\Manage_fee_head;
 use App\Fine_setups;
 use App\Take_payments;
@@ -115,6 +116,26 @@ class FeemanagementController extends Controller
         $InsertData['cardNoInp'] = $request->cardNoInp; 
         $InsertData['bankNameSel'] = $request->bankNameSel; 
         $InsertData['onDateSel'] = $request->onDateSel;   
+
+        foreach($request->headbox as $k=>$v){ 
+            $data['head_id'] = $request->headbox[$k];    
+            $data['month1'] = $request->mon_m1[$k];    
+            $data['month2'] = $request->mon_m2[$k];    
+            $data['month3'] = $request->mon_m3[$k];    
+            $data['month4'] = $request->mon_m4[$k];   
+            $data['month5'] = $request->mon_m5[$k];    
+            $data['month6'] = $request->mon_m6[$k];    
+            $data['month7'] = $request->mon_m7[$k];    
+            $data['month8'] = $request->mon_m8[$k]; 
+            $data['month9'] = $request->mon_m9[$k];    
+            $data['month10'] = $request->mon_m10[$k];    
+            $data['month11'] = $request->mon_m11[$k];    
+            $data['month12'] = $request->mon_m12[$k];  
+            $fee_alloca_Array[] =Fee_allocation_details::create($data)->id; 
+        }    
+
+
+
 
         Take_payments::create($InsertData);  
         return redirect()->route('admin.fee_paymenthistory')->withSuccess('Data inserted Successfully'); 
