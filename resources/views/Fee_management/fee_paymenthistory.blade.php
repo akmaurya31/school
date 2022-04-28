@@ -56,6 +56,7 @@
             <div class="profile-picture col-xs-6">
               <img src="http://oracleinfotech.in/demoschool/schoolmgt/assets/images/ici-avatar.jpg" alt="" class="img-responsive">
             </div>
+
             <div class="search_results--lists  stu_div">
               <!-- <div><span>Name</span><span>Dhananjay</span></div>
               <div><span>FName</span><span>Mehrotr11a</span></div>
@@ -64,6 +65,8 @@
               <div><span>Class</span><span>Nursery Daffodil</span></div>
               <div><span>Section</span><span>B</span></div> -->
             </div>
+            <div class="hpay" ><span>Do want pay fee ? </span> <input type='checkbox' name='paywant' class='paywant'/></div>
+
           </div>
         </div>
       <!-- </form> -->
@@ -238,7 +241,7 @@
         </thead>
         <tbody id="student_div">
        
-          <tr>
+          <!-- <tr>
             <td></td>
             <td>1</td> 
             <td>4130</td>
@@ -248,189 +251,93 @@
             <td>
               <button class="btn badge badge-warning" data-toggle="tooltip" title="View"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
             </td>
-          </tr>
+          </tr> -->
 
           
         </tbody>
       </table>
     </div>
 
-    <div class="ak_table ak_table2 ak_dtablestyle">
+    <div class="ak_table ak_table2 ak_dtablestyle  headshow" >
         <div class="table_ws_nowrap tbl--cst__scroll">
           <table class="table table-bordered table-responsive tbl-fee-details mb-0">
             <thead>
-              <tr>
+              <tr> 
+                <th class="stl_th1"></th>
                 <th class="stl_th1">Head Name</th>
                 <th class="stl_th2">
-                  <input type="checkbox" name="chkApr" id="chkApr">
+                  <input type="checkbox" name="chkApr" id="chkApr" data-col='4' class="chead">
                   <div>Apr</div>
                 </th>
                 <th class="stl_th3">
-                  <input type="checkbox" name="chkMay" id="chkMay">
+                  <input type="checkbox" name="chkMay" id="chkMay" data-col='5'  class="chead">
                   <div>May</div>
                 </th>
                 <th class="stl_th4">
-                  <input type="checkbox" name="chkJun" id="chkJun">
+                  <input type="checkbox" name="chkJun" id="chkJun" data-col='6'  class="chead">
                   <div>Jun</div>
                 </th>
                 <th class="stl_th5">
-                  <input type="checkbox" name="chkJul" id="chkJul">
+                  <input type="checkbox" name="chkJul" id="chkJul"  class="chead">
                   <div>Jul</div>
                 </th>
                 <th class="stl_th8">
-                  <input type="checkbox" name="chkAug" id="chkAug">
+                  <input type="checkbox" name="chkAug" id="chkAug"  class="chead">
                   <div>Aug</div>
                 </th>
                 <th class="stl_th9">
-                  <input type="checkbox" name="chkSep" id="chkSep">
+                  <input type="checkbox" name="chkSep" id="chkSep"  class="chead">
                   <div>Sep</div>
                 </th>
                 <th class="stl_th10">
-                  <input type="checkbox" name="chkOct" id="chkOct">
+                  <input type="checkbox" name="chkOct" id="chkOct"  class="chead">
                   <div>Oct</div>
                 </th>
                 <th class="stl_th11">
-                  <input type="checkbox" name="chkNov" id="chkNov">
+                  <input type="checkbox" name="chkNov" id="chkNov"  class="chead">
                   <div>Nov</div>
                 </th>
                 <th class="stl_th12">
-                  <input type="checkbox" name="chkDec" id="chkDec">
+                  <input type="checkbox" name="chkDec" id="chkDec"  class="chead">
                   <div>Dec</div>
                 </th>
                 <th class="stl_th13">
-                  <input type="checkbox" name="chkJan" id="chkJan">
+                  <input type="checkbox" name="chkJan" id="chkJan"  class="chead">
                   <div>Jan</div>
                 </th>
                 <th class="stl_th14">
-                  <input type="checkbox" name="chkFeb" id="chkFeb">
+                  <input type="checkbox" name="chkFeb" id="chkFeb"  class="chead">
                   <div>Feb</div>
                 </th>
                 <th class="stl_th15">
-                  <input type="checkbox" name="chkMar" id="chkMar">
+                  <input type="checkbox" name="chkMar" id="chkMar"  class="chead">
                   <div>Mar</div>
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkTransport" id="chkTransport">
-                  Transport fees</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkCharges" id="chkCharges">
-                  Annual Charge</td>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-                <td>20</td>
-                <td>21</td>
-                <td>22</td>
-                <td>23</td>
-                <td>24</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkDev" id="chkDev">
-                  Development Fund</td>
-                <td>25</td>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-                <td>29</td>
-                <td>30</td>
-                <td>31</td>
-                <td>32</td>
-                <td>33</td>
-                <td>34</td>
-                <td>35</td>
-                <td>36</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkExam" id="chkExam">
-                  Exam/Ass Fee</td>
-                <td>37</td>
-                <td>38</td>
-                <td>39</td>
-                <td>40</td>
-                <td>41</td>
-                <td>42</td>
-                <td>43</td>
-                <td>44</td>
-                <td>45</td>
-                <td>46</td>
-                <td>47</td>
-                <td>48</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkEMS" id="chkEMS">
-                  Smart EMS</td>
-                <td>49</td>
-                <td>50</td>
-                <td>51</td>
-                <td>52</td>
-                <td>53</td>
-                <td>54</td>
-                <td>55</td>
-                <td>56</td>
-                <td>57</td>
-                <td>58</td>
-                <td>59</td>
-                <td>60</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkSMS" id="chkSMS">
-                  ERP SMS</td>
-                <td>62</td>
-                <td>63</td>
-                <td>64</td>
-                <td>65</td>
-                <td>66</td>
-                <td>67</td>
-                <td>68</td>
-                <td>69</td>
-                <td>70</td>
-                <td>71</td>
-                <td>72</td>
-                <td>73</td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="chkTution" id="chkTution">
-                  Tution fees</td>
-                <td>74</td>
-                <td>75</td>
-                <td>76</td>
-                <td>77</td>
-                <td>78</td>
-                <td>79</td>
-                <td>80</td>
-                <td>81</td>
-                <td>82</td>
-                <td>83</td>
-                <td>84</td>
-                <td>85</td>
-              </tr>
+            <tbody> 
+              @foreach($HeadMaster as $key) 
+                   <?php if($key->group_id==2){ ?>
+                  <tr> 
+                    <td><br/><input type="checkbox" name="headbox[<?=$key->id?>]" data-row="<?=$key->id?>" class="checkAll chead" value="<?=$key->id?>"/></td>
+                   
+
+                    <td><label for="tutionTxt">{{ $key->head_name }}</label></td>
+                    <td><input type="number" name="mon_m4[<?=$key->id?>]" id="mon_m4"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m5[<?=$key->id?>]" id="mon_m5"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m6[<?=$key->id?>]" id="mon_m6"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m7[<?=$key->id?>]" id="mon_m7"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m8[<?=$key->id?>]" id="mon_m8"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m9[<?=$key->id?>]" id="mon_m9"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m10[<?=$key->id?>]" id="mon_m10"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m11[<?=$key->id?>]" id="mon_m11"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m12[<?=$key->id?>]" id="mon_m12"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m1[<?=$key->id?>]" id="mon_m1"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m2"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m3"  value="{{ $valk=$key->rate*6 }}"></td>
+                  </tr>
+                  <?php } ?>
+                  @endforeach  
             </tbody>
           </table>
         </div>
@@ -455,11 +362,11 @@
       <div class="row">
         <div class="form-group col-sm-6 col-xs-12">
           <label for="fine">Fine *</label>
-          <input type="number" class="form-control" name="fine" id="fine" required>
+          <input type="number" class="form-control" value="0"  name="fine" id="fine" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="fine">Concession *</label>
-          <input type="number" class="form-control" name="concession" id="concession" required>
+          <input type="number" class="form-control" value="0" name="concession" id="concession" required>
         </div>
         <div class="form-group col-sm-6 col-xs-12 flex-col">
           <label for="waveChk">Wave Off</label>
@@ -467,7 +374,9 @@
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="totFee">Total Fees</label>
-          <input type="number" class="form-control" id="totalfee" name="totalfee" required>
+          <input type="number" class="form-control" readonly id="totalfee" name="totalfee"  value="0"  required>
+          <input type="hidden" class="form-control" id="totalfee_hidden" name="totalfee_hidden" required>
+          
         </div>
         <div class="form-group col-sm-6 col-xs-12">
           <label for="paymentInp">Payment</label>
@@ -607,12 +516,59 @@ $(function(){
             var rs=obj.data;  
             var div1="<div><span>Reg No</span><span>"+rs.s_registered+"</span></div>";
             var div2="<div><span>Name</span><span>"+rs.s_first_name+rs.s_last_name+"</span></div>";
-            var div3="<div><span>Class</span><span>"+rs.s_class_id+"</span></div>";  
+            var div3="<div><span>Class</span><span>"+rs.s_class_id+"</span></div>"; 
             var students=div1+div2+div3; 
+            $(".hpay").show(); 
              $('.stu_div').html(students);
+
 					}
         });         
   });
+
+
+  $(".headshow").hide(500);
+  $(".hpay").hide(); 
+  $(".paywant").on('click',function(){  
+    $(".headshow").show(500);   
+  })
+
+
+  $(".chead").on('click',function(){  
+
+
+
+    
+    
+   // var 
+
+
+    $('#totalfee').val(totalfee); 
+    $('#totalfee_hidden').val(totalfee); 
+
+    var totalfee=13600;
+
+
+  // $.each(rs, function(k, v){  
+  //             k=k+1;
+  //           htm +="<tr><td><input type='checkbox' name='chkTransport' id='chkTransport'></td><td>"+k+"</td><td>"+v.s_registered+"</td><td>"+v.s_first_name+v.s_last_name+"</td><td>"+v.s_class_id+"</td><td>V</td><td><button class='btn badge badge-warning' data-toggle='tooltip' title='View'><i class='fa fa-eye fa-2x' aria-hidden='true'></i></button></td></tr>";  
+	// 			  	}); 
+     });
+
+
+  $("#fine").on('keyup',function(){  
+    var totalfee=$('#totalfee_hidden').val(); 
+    var concession=$('#concession').val(); 
+    var fine=$(this).val();
+    $('#totalfee').val(parseInt(totalfee)+parseInt(fine)-parseInt(concession));  
+  });   
+
+  $("#concession").on('keyup',function(){  
+    var totalfee=$('#totalfee_hidden').val();  
+    var fine=$('#fine').val();  
+    var concession=$(this).val();
+    $('#totalfee').val(parseInt(totalfee)+parseInt(fine)-parseInt(concession));  
+  });   
+
 
 
   $(".bfilters").on('click',function(){
@@ -633,7 +589,7 @@ $(function(){
             var htm='';
             $.each(rs, function(k, v){  
               k=k+1;
-            htm +="<tr><td></td><td>"+k+"</td><td>"+v.s_registered+"</td><td>"+v.s_first_name+v.s_last_name+"</td><td>"+v.s_class_id+"</td><td>V</td><td>A</td><td></td></tr>";  
+            htm +="<tr><td><input type='checkbox' name='chkTransport' id='chkTransport'></td><td>"+k+"</td><td>"+v.s_registered+"</td><td>"+v.s_first_name+v.s_last_name+"</td><td>"+v.s_class_id+"</td><td>V</td><td><button class='btn badge badge-warning' data-toggle='tooltip' title='View'><i class='fa fa-eye fa-2x' aria-hidden='true'></i></button></td></tr>";  
 				  	}); 
             $('#student_div').html(htm);
 					}

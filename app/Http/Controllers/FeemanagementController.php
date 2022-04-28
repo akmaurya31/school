@@ -426,7 +426,12 @@ class FeemanagementController extends Controller
     {
         $classes = Classes::where('Status',1)->get();
         $sessionmaster = Sessionmaster::where('Status',1)->get();
-    	return view('Fee_management/fee_paymenthistory',['classes'=>$classes,'sessionmaster'=>$sessionmaster]);
+        $HeadMaster = DB::table('head_master')
+        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id') 
+        ->join('group_master', 'head_master.group_id', '=', 'group_master.id')  
+        ->get();
+        
+    	return view('Fee_management/fee_paymenthistory',['HeadMaster'=>$HeadMaster,'classes'=>$classes,'sessionmaster'=>$sessionmaster]);
     }
     
     public function fee_reciepts()
