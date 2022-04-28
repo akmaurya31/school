@@ -228,8 +228,7 @@
         <thead>
           <tr>
             <th class="stl_th1"></th>
-            <th class="stl_th2">SL</th>
-            <th class="stl_th3">Roll No</th>
+            <th class="stl_th2">SL</th> 
             <th class="stl_th4">Reg No</th>
             <th class="stl_th5">Name</th>
             <th class="stl_th6">Class</th>
@@ -237,11 +236,11 @@
             <th class="stl_th8">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="student_div">
+       
           <tr>
             <td></td>
-            <td>1</td>
-            <td>60</td>
+            <td>1</td> 
             <td>4130</td>
             <td>Hardik Lohia</td>
             <td>V</td>
@@ -250,6 +249,8 @@
               <button class="btn badge badge-warning" data-toggle="tooltip" title="View"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></button>
             </td>
           </tr>
+
+          
         </tbody>
       </table>
     </div>
@@ -618,13 +619,7 @@ $(function(){
     //$("#formModal").modal('show');
     var session=$('#session').val();
     var wing=$('#wing').val();
-    var bclass=$('#class').val();
-
-    console.log(session);
-
-    console.log(wing);
-    console.log(bclass);
-    
+    var bclass=$('#class').val(); 
  				//activate(1);
 				$.ajax({
 					type : 'GET',
@@ -635,11 +630,12 @@ $(function(){
 					{
             var obj = $.parseJSON(response);
             var rs=obj.data;  
-            var div1="<div><span>Reg No</span><span>"+rs.s_registered+"</span></div>";
-            var div2="<div><span>Name</span><span>"+rs.s_first_name+rs.s_last_name+"</span></div>";
-            var div3="<div><span>Class</span><span>"+rs.s_class_id+"</span></div>";  
-            var students=div1+div2+div3; 
-             $('.stu_div').html(students);
+            var htm='';
+            $.each(rs, function(k, v){  
+              k=k+1;
+            htm +="<tr><td></td><td>"+k+"</td><td>"+v.s_registered+"</td><td>"+v.s_first_name+v.s_last_name+"</td><td>"+v.s_class_id+"</td><td>V</td><td>A</td><td></td></tr>";  
+				  	}); 
+            $('#student_div').html(htm);
 					}
         });         
   });
