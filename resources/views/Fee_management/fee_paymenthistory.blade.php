@@ -533,13 +533,24 @@ $(function(){
   })
 
 
-  $(".chead").on('click',function(){   
+  $(".chead,.cheadk").on('click',function(){   
     var totalfee=13600;
     $('#totalfee').val(totalfee); 
     $('#totalfee_hidden').val(totalfee); 
 
-    $(".cheadk").each(function() { 
-       console.log($(this).val()); 
+    // $(".cheadk").each(function() { 
+    //    console.log($(this).val()); 
+    // });
+
+
+    $('.chead').each(function () {
+       var sThisVal = (this.checked ? $(this).val() : "");
+       console.log(sThisVal);
+    });
+
+    $('.cheadk').each(function () {
+       var sThisVal = (this.checked ? $(this).val() : "");
+       console.log(sThisVal);
     });
      
 
