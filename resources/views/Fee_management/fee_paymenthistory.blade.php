@@ -266,15 +266,15 @@
                 <th class="stl_th1"></th>
                 <th class="stl_th1">Head Name</th>
                 <th class="stl_th2">
-                  <input type="checkbox" name="chkApr" id="chkApr" data-col='4' class="chead">
+                  <input type="checkbox" name="chkApr" id="chkApr" data-col='4' value="4" class="chead">
                   <div>Apr</div>
                 </th>
                 <th class="stl_th3">
-                  <input type="checkbox" name="chkMay" id="chkMay" data-col='5'  class="chead">
+                  <input type="checkbox" name="chkMay" id="chkMay" data-col='5'  value="5" class="chead">
                   <div>May</div>
                 </th>
                 <th class="stl_th4">
-                  <input type="checkbox" name="chkJun" id="chkJun" data-col='6'  class="chead">
+                  <input type="checkbox" name="chkJun" id="chkJun" data-col='6'   value="6" class="chead">
                   <div>Jun</div>
                 </th>
                 <th class="stl_th5">
@@ -317,24 +317,27 @@
             </thead>
             <tbody>  <?php  $i=1;    ?>
               @foreach($HeadMaster as $key) 
-                   <?php   if($key->group_id==2){  ?>
+                   <?php   if($key->group_id==2){  
+                     
+                     
+                     ?>
                   <tr> 
-                    <td><br/><input type="checkbox" name="headbox[<?=$i?>]" data-row="<?=$i?>" class="checkAll cheadk" value="<?=$i; ?>"/></td>
+                    <td><br/><input type="checkbox" name="headbox[<?=$key->hid?>]" data-row="<?=$key->hid?>" class="checkAll cheadk" value="<?=$key->hid?>"/></td>
                    
 
                     <td><label for="tutionTxt">{{ $key->head_name }}</label></td>
-                    <td><input type="number" name="mon_m4[<?=$key->id?>]" id="mon_m4"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m5[<?=$key->id?>]" id="mon_m5"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m6[<?=$key->id?>]" id="mon_m6"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m7[<?=$key->id?>]" id="mon_m7"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m8[<?=$key->id?>]" id="mon_m8"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m9[<?=$key->id?>]" id="mon_m9"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m10[<?=$key->id?>]" id="mon_m10"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m11[<?=$key->id?>]" id="mon_m11"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m12[<?=$key->id?>]" id="mon_m12"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m1[<?=$key->id?>]" id="mon_m1"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m2"  value="{{ $valk=$key->rate*6 }}"></td>
-                    <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m3"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m4[<?=$key->id?>]" id="mon_m<?=$key->hid?>_4"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m5[<?=$key->id?>]" id="mon_m<?=$key->hid?>_5"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m6[<?=$key->id?>]" id="mon_m<?=$key->hid?>_6"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m7[<?=$key->id?>]" id="mon_m<?=$key->hid?>_7"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m8[<?=$key->id?>]" id="mon_m<?=$key->hid?>_8"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m9[<?=$key->id?>]" id="mon_m<?=$key->hid?>_9"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m10[<?=$key->id?>]" id="mon_m<?=$key->hid?>_10"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m11[<?=$key->id?>]" id="mon_m<?=$key->hid?>_11"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m12[<?=$key->id?>]" id="mon_m<?=$key->hid?>_12"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m1[<?=$key->id?>]" id="mon_m<?=$key->hid?>_1"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m2[<?=$key->id?>]" id="mon_m<?=$key->hid?>_2"  value="{{ $valk=$key->rate*6 }}"></td>
+                    <td><input type="number" name="mon_m3[<?=$key->id?>]" id="mon_m<?=$key->hid?>_3"  value="{{ $valk=$key->rate*6 }}"></td>
                   </tr>
                   <?php }  $i=$i+1; ?>
                   @endforeach  
@@ -376,6 +379,8 @@
           <label for="totFee">Total Fees</label>
           <input type="number" class="form-control" readonly id="totalfee" name="totalfee"  value="0"  required>
           <input type="hidden" class="form-control" id="totalfee_hidden" name="totalfee_hidden" required>
+          <input type="hidden" class="form-control" id="tpay_ids_hidden" name="tpay_ids_hidden" required>
+          
           
         </div>
         <div class="form-group col-sm-6 col-xs-12">
@@ -533,28 +538,42 @@ $(function(){
   })
 
 
-  $(".chead,.cheadk").on('click',function(){   
-    var totalfee=13600;
-    $('#totalfee').val(totalfee); 
-    $('#totalfee_hidden').val(totalfee); 
-
-    // $(".cheadk").each(function() { 
-    //    console.log($(this).val()); 
-    // });
-
-
-    $('.chead').each(function () {
-       var sThisVal = (this.checked ? $(this).val() : "");
-       console.log(sThisVal);
-    });
-
-    $('.cheadk').each(function () {
-       var sThisVal = (this.checked ? $(this).val() : "");
-       console.log(sThisVal);
-    });
-     
-
+  $(".chead").on('click',function(){  
+    totalfee();
   });
+
+  $(".cheadk").on('click',function(){  
+    totalfee();
+  });
+
+  function totalfee(){
+    var totalfee=0;  
+    var tpay_ids='';
+    $('.chead').each(function () {
+       var sMonth = (this.checked ? $(this).val() : "");
+       //console.log(sThisVal);
+      if(sMonth!=""){
+        $('.cheadk').each(function () {
+        var sHead = (this.checked ? $(this).val() : "");
+        //console.log(sThisVal);
+          if(sHead!=""){
+            //mon_m3_4
+            var ss='mon_m'+sHead+'_'+sMonth; 
+            tpay_ids=tpay_ids+','+sHead+'_'+sMonth;
+            var ssk=$("#"+ss).val();
+            $('#tpay_ids_hidden').val(tpay_ids); 
+            totalfee=parseFloat(totalfee)+parseFloat(ssk);
+            $('#totalfee').val(totalfee); 
+            $('#totalfee_hidden').val(totalfee); 
+          //console.log(ss);
+          }
+        });
+      }
+       
+    });
+
+   
+  }
 
 
   $("#fine").on('keyup',function(){  

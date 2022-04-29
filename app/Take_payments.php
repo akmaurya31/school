@@ -37,7 +37,8 @@ class Take_payments extends Model
         'cardNoInp',
         'cardType',
         'bankNameSel',
-        'onDateSel' 
+        'onDateSel',
+        'takepay_ids'
     ];
 
   protected $caste = [

@@ -109,7 +109,8 @@ class FeemanagementController extends Controller
         $InsertData['payment'] = $request->payment;  
         $InsertData['balance'] = $request->balance; 
         $InsertData['remarks'] = $request->remarks;  
-
+        $InsertData['takepay_ids'] = $request->tpay_ids_hidden;  
+        
         $InsertData['paymode'] = $request->paymode; 
         $InsertData['chequeInp'] = $request->chequeInp; 
         $InsertData['utrNoInp'] = $request->utrNoInp; 
@@ -117,26 +118,7 @@ class FeemanagementController extends Controller
         $InsertData['bankNameSel'] = $request->bankNameSel; 
         $InsertData['onDateSel'] = $request->onDateSel;   
 
-        foreach($request->headbox as $k=>$v){ 
-            $data['head_id'] = $request->headbox[$k];    
-            $data['month1'] = $request->mon_m1[$k];    
-            $data['month2'] = $request->mon_m2[$k];    
-            $data['month3'] = $request->mon_m3[$k];    
-            $data['month4'] = $request->mon_m4[$k];   
-            $data['month5'] = $request->mon_m5[$k];    
-            $data['month6'] = $request->mon_m6[$k];    
-            $data['month7'] = $request->mon_m7[$k];    
-            $data['month8'] = $request->mon_m8[$k]; 
-            $data['month9'] = $request->mon_m9[$k];    
-            $data['month10'] = $request->mon_m10[$k];    
-            $data['month11'] = $request->mon_m11[$k];    
-            $data['month12'] = $request->mon_m12[$k];  
-            $fee_alloca_Array[] =Fee_allocation_details::create($data)->id; 
-        }    
-
-
-
-
+      
         Take_payments::create($InsertData);  
         return redirect()->route('admin.fee_paymenthistory')->withSuccess('Data inserted Successfully'); 
     }
@@ -447,10 +429,13 @@ class FeemanagementController extends Controller
     {
         $classes = Classes::where('Status',1)->get();
         $sessionmaster = Sessionmaster::where('Status',1)->get();
-        $HeadMaster = DB::table('head_master')
-        ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id') 
-        ->join('group_master', 'head_master.group_id', '=', 'group_master.id')  
-        ->get();
+
+        $HeadMaster = DB::select("select head_master.*,headname_master.*,group_master.*,head_master.id as hid from `head_master` inner join `headname_master` on `headname_master`.`id` = `head_master`.`headname_id` inner join `group_master` on `head_master`.`group_id` = `group_master`.`id`");
+
+        //$HeadMaster = DB::table('head_master1')
+        // ->join('headname_master', 'headname_master.id', '=', 'head_master.headname_id') 
+        // ->join('group_master', 'head_master.group_id', '=', 'group_master.id')  
+        // ->get();
         
     	return view('Fee_management/fee_paymenthistory',['HeadMaster'=>$HeadMaster,'classes'=>$classes,'sessionmaster'=>$sessionmaster]);
     }
