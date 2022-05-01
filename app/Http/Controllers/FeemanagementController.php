@@ -442,7 +442,39 @@ class FeemanagementController extends Controller
     
     public function fee_reciepts()
     {
-    	return view('Fee_management/fee_reciepts');
+        $HEADS='';$MONTHS='';
+        $take_payments = DB::select("select * FROM take_payments where stu_id='9'");
+        $Tp=$take_payments[0];
+        foreach($take_payments as $key=>$val){   
+            $str_arr = explode (",", ltrim($val->takepay_ids,','));  
+            foreach($str_arr as $k=>$v){ 
+                 $str_arr1 = explode("_",$v);  
+                 foreach($str_arr1 as $k1=>$v1){  
+                    if($k1==0){  
+                         $HEADS=$HEADS."'".$v1."'".','; 
+                    } 
+                    if($k1==1){  
+                        $MONTHS=$MONTHS."'".$v1."'".','; 
+                   }
+                } 
+            } 
+        }
+        
+         $headname_ids = rtrim($HEADS, ", "); 
+         $month_ids = rtrim($MONTHS, ", ");  
+
+         $HeadMaster = DB::select("select head_master.*,headname_master.*,group_master.*,head_master.id as hid from `head_master` inner join `headname_master` on `headname_master`.`id` = `head_master`.`headname_id` inner join `group_master` on `head_master`.`group_id` = `group_master`.`id` where head_master.headname_id in ($headname_ids)");
+
+         $Students = DB::select("SELECT * FROM students where s_id='9'");
+         $Sts=$Students[0];
+
+         //print_r($Students[0]->s_first_name); die("sdfsf");
+
+
+        // $HeadMaster = DB::select("select take_payments.*,     
+        // head_master.*,headname_master.*,group_master.*,head_master.id as hid from `head_master` inner join `headname_master` on `headname_master`.`id` = `head_master`.`headname_id` inner join `group_master` on `head_master`.`group_id` = `group_master`.`id`");
+
+    	return view('Fee_management/fee_reciepts',['HeadMaster'=>$HeadMaster,'MONTHS'=>$month_ids,'St'=>$Sts,'Tp'=>$Tp]);
     }
 
     public function getHeadName(Request $request){

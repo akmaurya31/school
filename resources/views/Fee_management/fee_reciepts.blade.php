@@ -49,16 +49,16 @@
                   <div class="row">
                       <div class="col-xs-6">
                         <p><span><b>Reciept No</b></span>:<span id="row1-col1">19</span></p>
-                        <p><span><b>Admission No</b></span>:<span id="row2-col1">4130</span></p>
-                        <p><span><b>Student Name</b></span>:<span id="row3-col1">HARDIK LOHIA</span></p>
-                        <p><span><b>Father's Name</b></span>:<span id="row4-col1">PAWAN LOHIA</span></p>
+                        <p><span><b>Admission No</b></span>:<span id="row2-col1">{{ $St->s_registered }}</span></p>
+                        <p><span><b>Student Name</b></span>:<span id="row3-col1">{{ $St->s_first_name }}{{ $St->s_last_name }}</span></p>
+                        <p><span><b>Father's Name</b></span>:<span id="row4-col1">{{ $St->s_father_name }}</span></p>
                         <p><span><b>Installment</b></span>:<span id="row5-col1">Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,Jan,Feb</span></p>
                       </div>
                       <div class="col-xs-6">
                         <p><span><b>Due Date</b></span>:<span id="row1-col2">13/10/2020</span></p>
-                        <p><span><b>Session</b></span>:<span id="row2-col2">2019-20</span></p>
-                        <p><span><b>Class</b></span>:<span id="row3-col2">Prep-Tulip</span></p>
-                        <p><span><b>Contact</b></span>:<span id="row4-col2">976547890</span></p>
+                        <p><span><b>Session</b></span>:<span id="row2-col2">{{ $St->s_session }}</span></p>
+                        <p><span><b>Class</b></span>:<span id="row3-col2">{{ $St->s_class_id }}</span></p>
+                        <p><span><b>Contact</b></span>:<span id="row4-col2">{{ $St->s_mobile }}</span></p>
                       </div>
                   </div>
                   <div class="print-data-tbl">
@@ -74,30 +74,18 @@
                             </tr>
                           </thead>
                           <tbody>
+                          <?php  $i=1;    ?>
+                  @foreach($HeadMaster as $key) 
+                   <?php   if($key->group_id==2){   ?>
+                          <?php ?>
                             <tr>
-                              <td>1</td>
-                              <td>Five Months AC EMS(New)</td>
-                              <td>Apr</td>
-                              <td>1475</td>
+                              <td><?php echo $i; ?></td>
+                              <td>{{ $key->head_name }}</td>
+                              <td>{{ $MONTHS }}</td>
+                              <td>{{ $key->head_name }}</td>
                             </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>ERP EMS</td>
-                              <td>Apr,May Jul, Feb</td>
-                              <td>72</td>
-                            </tr>
-                            <tr>
-                              <td>3</td>
-                              <td>Annual Charge</td>
-                              <td>Apr,May,Jun, Jul, Feb</td>
-                              <td>1475</td>
-                            </tr>
-                            <tr>
-                              <td>4</td>
-                              <td>Caution Money</td>
-                              <td>Apr,May,Jun, Jul, Feb</td>
-                              <td>2500</td>
-                            </tr>
+                            <?php }  $i=$i+1; ?>
+                  @endforeach  
                           </tbody>
                         </table>
                       </div>
@@ -111,9 +99,9 @@
                           <p><span><b>Paymode</b></span>:<span id="row1-col1">Cash</span></p>
                           <p><span><b>Instrument Date</b></span>:<span id="row2-col1"></span></p>
                           <p><span><b>Instrunebt No</b></span>:<span id="row3-col1"></span></p>
-                          <p><span><b>Total Amount</b></span>:<span id="row4-col1">101232.00</span></p>
-                          <p><span><b>Paid Amount</b></span>:<span id="row5-col1">101232.00</span></p>  
-                          <p><span><b>Balance Amount</b></span>:<span id="row5-col1">0.00</span></p>  
+                          <p><span><b>Total Amount</b></span>:<span id="row4-col1">{{ $Tp->totalfee }}</span></p>
+                          <p><span><b>Paid Amount</b></span>:<span id="row5-col1">{{ $Tp->payment }}</span></p>  
+                          <p><span><b>Balance Amount</b></span>:<span id="row5-col1">{{ $Tp->balance }}</span></p>  
                         </div>
                       </div>
               </div>

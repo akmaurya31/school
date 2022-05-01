@@ -685,7 +685,8 @@ Route::group(['middleware' => ['auth','revalidate']], function () {
     Route::get('admin/Fee_management/feedue_list', 'FeemanagementController@feedue_list')->name('admin.feedue_list');
     Route::get('admin/Fee_management/fee_paymenthistory', 'FeemanagementController@fee_paymenthistory')->name('admin.fee_paymenthistory');
     
-    Route::get('admin/fee_reciepts', 'FeemanagementController@fee_reciepts')->name('admin.fee_reciepts');
+    //Route::get('admin/fee_reciepts', 'FeemanagementController@fee_reciepts')->name('admin.fee_reciepts');
+    Route::get('admin/Fee_management/fee_reciepts', 'FeemanagementController@fee_reciepts')->name('admin.fee_reciepts');
 
 Route::get("/prev-certificate", function(){
    return view("pdf.std_certificates");

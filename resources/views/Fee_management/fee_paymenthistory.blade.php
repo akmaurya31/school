@@ -317,10 +317,7 @@
             </thead>
             <tbody>  <?php  $i=1;    ?>
               @foreach($HeadMaster as $key) 
-                   <?php   if($key->group_id==2){  
-                     
-                     
-                     ?>
+                   <?php   if($key->group_id==2){   ?>
                   <tr> 
                     <td><br/><input type="checkbox" name="headbox[<?=$key->hid?>]" data-row="<?=$key->hid?>" class="checkAll cheadk" value="<?=$key->hid?>"/></td>
                    
